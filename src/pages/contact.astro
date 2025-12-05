@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/Layout.astro";
+---
+
+<BaseLayout title="Arizona Aikido – Contact">
+  <!-- Header -->
+  <section class="border-b border-slate-800 bg-slate-950/90">
+    <div class="mx-auto max-w-4xl px-4 py-10 md:py-14">
+      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+        Get in touch
+      </p>
+      <h1 class="mt-2 text-3xl md:text-4xl font-semibold tracking-tight text-slate-50">
+        Contact Arizona Aikido
+      </h1>
+      <p class="mt-4 text-sm md:text-base text-slate-300 max-w-2xl">
+        Have questions about classes, seminars, or visiting the dojo? You can reach us by email,
+        phone, or mail. For directions to the dojo itself, please see the Directions page.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact blocks -->
+  <section class="mx-auto max-w-4xl px-4 py-10 md:py-14 space-y-8 text-sm md:text-base text-slate-200">
+    <div class="grid gap-6 md:grid-cols-2">
+      <!-- Email -->
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-5">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-violet-300">
+          Email
+        </h2>
+        <p class="mt-3 text-sm text-slate-300">
+          For general questions about training, seminars, membership, or visiting:
+        </p>
+        <p class="mt-3 text-sm font-semibold text-slate-50">
+          <a href="mailto:Contact@AZAikido.org" class="hover:text-violet-300">
+            Contact@AZAikido.org
+          </a>
+        </p>
+      </div>
+
+      <!-- Phone -->
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-5">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-violet-300">
+          Phone
+        </h2>
+        <p class="mt-3 text-sm text-slate-300">
+          You can reach Arizona Aikido by phone at:
+        </p>
+        <p class="mt-3 text-sm font-semibold text-slate-50">
+          <a href="tel:16022668321" class="hover:text-violet-300">
+            602-266-8321
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Mailing address -->
+    <section class="rounded-2xl border border-slate-800 bg-slate-900/70 p-5">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-violet-300">
+        Mailing address
+      </h2>
+      <p class="mt-3 text-sm text-slate-300">
+        For mail, correspondence, and registration forms:
+      </p>
+      <address class="mt-4 text-sm not-italic leading-relaxed text-slate-100">
+        ARIZONA AIKIDO<br />
+        ATTN: Don Crawford<br />
+        2416 S Mulberry<br />
+        Mesa, AZ 85202-7532
+      </address>
+      <p class="mt-3 text-xs text-slate-400">
+        Note: This is a mailing address. The dojo training location is different – see
+        <a href="/directions" class="text-violet-300 hover:text-violet-200 underline underline-offset-2">
+          Directions
+        </a>
+        for the dojo address and map.
+      </p>
+    </section>
+
+    <!-- Simple note for visitors -->
+    <section class="rounded-2xl border border-emerald-600/40 bg-emerald-950/20 p-5 space-y-3">
+      <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300">
+        Visiting the dojo
+      </h2>
+      <p class="text-sm text-emerald-50/90">
+        Prospective students are welcome to visit and watch a class, or to join in as beginners.
+        It is helpful (but not required) to email or call ahead so the instructors know to expect
+        you.
+      </p>
+      <p class="text-xs text-emerald-200/90">
+        Class times can occasionally change. Please check the latest schedule in the News section
+        or confirm by email or phone before your first visit.
+      </p>
+    </section>
+  </section>
+</BaseLayout>
