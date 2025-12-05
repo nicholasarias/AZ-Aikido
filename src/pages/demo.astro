@@ -1,6 +1,107 @@
-<head>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family="Inter":wght@400;600;700&display=swap" rel="stylesheet">
+
+
+
+    <!-- 1. The Dynamic Background Layer -->
+    <div id="water-background" style="opacity: 0;"></div>
+
+    <!-- 2. The Main Content Layer (Now Empty) -->
+    <div class="main-content">
+  
+    </div>
+
+
+    <script>
+        // --- JAVASCRIPT ANIMATION LOGIC: Single Pulse Control ---
+
+        const waterBackground: HTMLElement | null = document.getElementById('water-background');
+        
+// check if watcerbackground is null
+
+
+
+        let startTime: null | number = null;
+        let isRippling = false;
+        // Ripple Duration remains at 20 seconds (20000ms) for slow expansion
+        const RIPPLE_DURATION_MS = 20000; 
+        
+        // DROP_INTERVAL_MS is removed as the loop is gone.
+
+        // Custom Easing Function (Ease-Out Quadratic)
+        const easeOutQuad = (t:number) => t * (2 - t); 
+        /**
+         * Starts the single ripple animation pulse.
+         */
+        function startRipple() {
+            if (isRippling) return;
+            
+            isRippling = true;
+            startTime = null; // Reset start time for next frame
+            
+
+if (typeof waterBackground === 'undefined' || waterBackground === null) {
+    // Do Nothing
+        } else
+        {
+            // CRITICAL: Reset size while visually transparent
+            waterBackground?.style.setProperty('--ripple-size', '0%');
+            // CRITICAL: Ensure opacity is 1.0 at the start of the new ripple
+            waterBackground.style.opacity = '1.0'; 
+            requestAnimationFrame(animateRipple);
+        }
+    }
+        /**
+         * The main animation loop for the single ripple pulse.
+         * @param {DOMHighResTimeStamp} timestamp:number - The current time provided by requestAnimationFrame.
+         */
+        function animateRipple(timestamp:number) {
+            if (!isRippling) return;
+            
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            console.log(startTime)
+            
+            // Calculate progress (t ranges from 0 to 1)
+            let t:number = Math.min(1, elapsed / RIPPLE_DURATION_MS); 
+
+            // Apply easing to the time progression for expansion speed
+            const easedT = easeOutQuad(t); 
+
+            // Calculate Size: Starts at 100% and grows up to 8000%
+            const currentSize = 100 + (easedT * 7900); 
+            
+            // --- CRITICAL FADE LOGIC ---
+            // Start fading the ripple's opacity when 80% of the duration is complete.
+            let currentAlpha = 1.0;
+            if (t >= 0.8) {
+                // Fade progress (fp) goes from 0 (at t=0.8) to 1 (at t=1.0)
+                const fadeProgress = (t - 0.8) / 0.2; 
+                currentAlpha = 1.0 - fadeProgress;
+            }
+if (typeof waterBackground === 'undefined' || waterBackground === null) {
+// Do Nothing
+} else {
+        // Update CSS properties
+            waterBackground.style.setProperty('--ripple-size', `${currentSize}%`);
+            waterBackground.style.opacity = currentAlpha.toString(); // Control the visual fading
+
+            if (t < 1) {
+                // Continue the animation
+                requestAnimationFrame(animateRipple);
+            } else {
+                // Ripple finished, DO NOT restart the loop.
+                isRippling = false;
+                waterBackground.style.opacity = '0'; // Ensure it is fully transparent at the end.
+            }
+        }
+
+}
+    
+        // Start the single drop immediately when the page loads
+        window.onload = function() {
+            setTimeout(startRipple, 100); 
+        };
+
+    </script>
     <style>
         /*
         The core CSS for the subtle drop effect.
@@ -62,98 +163,3 @@
             @apply flex flex-col justify-center items-center; 
         }
     </style>
-</head>
-<body class="bg-gray-900">
-
-    <!-- 1. The Dynamic Background Layer -->
-    <div id="water-background" style="opacity: 0;"></div>
-
-    <!-- 2. The Main Content Layer (Now Empty) -->
-    <div class="main-content">
-        <!-- Your content goes here -->
-    </div>
-
-
-    <script>
-        // --- JAVASCRIPT ANIMATION LOGIC: Single Pulse Control ---
-
-        const waterBackground = document.getElementById('water-background');
-        
-        let startTime = null;
-        let isRippling = false;
-        // Ripple Duration remains at 20 seconds (20000ms) for slow expansion
-        const RIPPLE_DURATION_MS = 20000; 
-        
-        // DROP_INTERVAL_MS is removed as the loop is gone.
-
-        // Custom Easing Function (Ease-Out Quadratic)
-        const easeOutQuad = (t) => t * (2 - t); 
-
-        /**
-         * Starts the single ripple animation pulse.
-         */
-        function startRipple() {
-            if (isRippling) return;
-            
-            isRippling = true;
-            startTime = null; // Reset start time for next frame
-            
-            // CRITICAL: Reset size while visually transparent
-            waterBackground.style.setProperty('--ripple-size', '0%');
-            // CRITICAL: Ensure opacity is 1.0 at the start of the new ripple
-            waterBackground.style.opacity = '1.0'; 
-            
-            requestAnimationFrame(animateRipple);
-        }
-
-        /**
-         * The main animation loop for the single ripple pulse.
-         * @param {DOMHighResTimeStamp} timestamp - The current time provided by requestAnimationFrame.
-         */
-        function animateRipple(timestamp) {
-            console.log()
-            if (!isRippling) return;
-
-            if (!startTime) startTime = timestamp;
-            const elapsed = timestamp - startTime;
-            
-            // Calculate progress (t ranges from 0 to 1)
-            let t = Math.min(1, elapsed / RIPPLE_DURATION_MS); 
-
-            // Apply easing to the time progression for expansion speed
-            const easedT = easeOutQuad(t); 
-
-            // Calculate Size: Starts at 100% and grows up to 8000%
-            const currentSize = 100 + (easedT * 7900); 
-            
-            // --- CRITICAL FADE LOGIC ---
-            // Start fading the ripple's opacity when 80% of the duration is complete.
-            let currentAlpha = 1.0;
-            if (t >= 0.8) {
-                // Fade progress (fp) goes from 0 (at t=0.8) to 1 (at t=1.0)
-                const fadeProgress = (t - 0.8) / 0.2; 
-                currentAlpha = 1.0 - fadeProgress;
-            }
-
-            // Update CSS properties
-            waterBackground.style.setProperty('--ripple-size', `${currentSize}%`);
-            waterBackground.style.opacity = currentAlpha; // Control the visual fading
-
-            if (t < 1) {
-                // Continue the animation
-                requestAnimationFrame(animateRipple);
-            } else {
-                // Ripple finished, DO NOT restart the loop.
-                isRippling = false;
-                waterBackground.style.opacity = '0'; // Ensure it is fully transparent at the end.
-            }
-        }
-
-        // Start the single drop immediately when the page loads
-        window.onload = function() {
-            setTimeout(startRipple, 100); 
-        };
-
-    </script>
-</body>
-</html>
