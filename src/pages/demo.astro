@@ -1,0 +1,159 @@
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family="Inter":wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+        The core CSS for the subtle drop effect.
+        */
+        #water-background {
+            /* Full viewport coverage and layout - Absolutely positioned */
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            
+            /* CSS variable to control the ripple expansion size */
+            --ripple-size: 0%; 
+            
+            /* Deepest water color for high contrast and cinematic feel */
+            background-color: #051A33; 
+
+            /* --- The Single Drop Gradient Definition (Less Bright & Subtle) --- */
+            background-image: radial-gradient(
+                circle at center, 
+                /* 1. Transparent center */
+                transparent 0%, 
+
+                /* 2. Sharp, less bright crest (Reflection) - Reduced opacity from 0.5 to 0.3 */
+                rgba(255, 255, 255, 0.3) 1.0%, 
+                
+                /* 3. Transition area - Reduced opacity from 0.2 to 0.1 */
+                rgba(255, 255, 255, 0.1) 1.1%, 
+                
+                /* 4. The Shadow (3D Depth) - Reduced opacity from 0.4 to 0.2 */
+                rgba(0, 0, 0, 0.2) 1.2%, 
+                
+                /* 5. Final fade back to the deep water color */
+                transparent 1.5%, 
+                transparent 100%
+            );
+            
+            /* The size is the key: it is dynamically changed by JS to make the ripple expand */
+            background-size: var(--ripple-size) var(--ripple-size);
+            background-repeat: no-repeat;
+            background-position: center center; /* Ensure the pulse starts dead center */
+
+            /* Blend mode helps the light ripple interact subtly with the dark background */
+            mix-blend-mode: screen; 
+            
+            /* Ensures it stays in the background */
+            z-index: 1;
+        }
+
+        /* Styling for the main content layer (Now empty, just ensures z-index) */
+        .main-content {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            /* Flex properties kept for future content if you add it back */
+            @apply flex flex-col justify-center items-center; 
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+
+    <!-- 1. The Dynamic Background Layer -->
+    <div id="water-background" style="opacity: 0;"></div>
+
+    <!-- 2. The Main Content Layer (Now Empty) -->
+    <div class="main-content">
+        <!-- Your content goes here -->
+    </div>
+
+
+    <script>
+        // --- JAVASCRIPT ANIMATION LOGIC: Single Pulse Control ---
+
+        const waterBackground = document.getElementById('water-background');
+        
+        let startTime = null;
+        let isRippling = false;
+        // Ripple Duration remains at 20 seconds (20000ms) for slow expansion
+        const RIPPLE_DURATION_MS = 20000; 
+        
+        // DROP_INTERVAL_MS is removed as the loop is gone.
+
+        // Custom Easing Function (Ease-Out Quadratic)
+        const easeOutQuad = (t) => t * (2 - t); 
+
+        /**
+         * Starts the single ripple animation pulse.
+         */
+        function startRipple() {
+            if (isRippling) return;
+            
+            isRippling = true;
+            startTime = null; // Reset start time for next frame
+            
+            // CRITICAL: Reset size while visually transparent
+            waterBackground.style.setProperty('--ripple-size', '0%');
+            // CRITICAL: Ensure opacity is 1.0 at the start of the new ripple
+            waterBackground.style.opacity = '1.0'; 
+            
+            requestAnimationFrame(animateRipple);
+        }
+
+        /**
+         * The main animation loop for the single ripple pulse.
+         * @param {DOMHighResTimeStamp} timestamp - The current time provided by requestAnimationFrame.
+         */
+        function animateRipple(timestamp) {
+            console.log()
+            if (!isRippling) return;
+
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            
+            // Calculate progress (t ranges from 0 to 1)
+            let t = Math.min(1, elapsed / RIPPLE_DURATION_MS); 
+
+            // Apply easing to the time progression for expansion speed
+            const easedT = easeOutQuad(t); 
+
+            // Calculate Size: Starts at 100% and grows up to 8000%
+            const currentSize = 100 + (easedT * 7900); 
+            
+            // --- CRITICAL FADE LOGIC ---
+            // Start fading the ripple's opacity when 80% of the duration is complete.
+            let currentAlpha = 1.0;
+            if (t >= 0.8) {
+                // Fade progress (fp) goes from 0 (at t=0.8) to 1 (at t=1.0)
+                const fadeProgress = (t - 0.8) / 0.2; 
+                currentAlpha = 1.0 - fadeProgress;
+            }
+
+            // Update CSS properties
+            waterBackground.style.setProperty('--ripple-size', `${currentSize}%`);
+            waterBackground.style.opacity = currentAlpha; // Control the visual fading
+
+            if (t < 1) {
+                // Continue the animation
+                requestAnimationFrame(animateRipple);
+            } else {
+                // Ripple finished, DO NOT restart the loop.
+                isRippling = false;
+                waterBackground.style.opacity = '0'; // Ensure it is fully transparent at the end.
+            }
+        }
+
+        // Start the single drop immediately when the page loads
+        window.onload = function() {
+            setTimeout(startRipple, 100); 
+        };
+
+    </script>
+</body>
+</html>
