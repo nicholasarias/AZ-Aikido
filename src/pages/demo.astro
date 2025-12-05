@@ -1,13 +1,25 @@
-
-
+---
+// Check True and False 
+let Cheese = true
+let Meat = true
+import BaseLayout from "../layouts/Layout.astro";
+---
+<BaseLayout>
 
     <!-- 1. The Dynamic Background Layer -->
     <div id="water-background" style="opacity: 0;"></div>
 
     <!-- 2. The Main Content Layer (Now Empty) -->
     <div class="main-content">
-  
+ {Meat ? (
+    <p class="bg-blue-800 p-4 text-white">**The Cheese is Meat**</p>
+  ) : (
+    <button>And Its Not Spam</button>
+  )}
     </div>
+
+
+
 
 
     <script>
@@ -102,6 +114,7 @@ if (typeof waterBackground === 'undefined' || waterBackground === null) {
         };
 
     </script>
+    
     <style>
         /*
         The core CSS for the subtle drop effect.
@@ -163,3 +176,4 @@ if (typeof waterBackground === 'undefined' || waterBackground === null) {
             @apply flex flex-col justify-center items-center; 
         }
     </style>
+    </BaseLayout>
