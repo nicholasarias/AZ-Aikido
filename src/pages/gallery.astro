@@ -1,25 +1,171 @@
 ---
 import BaseLayout from "../layouts/Layout.astro";
+
+const gallerySections = [
+  {
+    id: "dojo-life",
+    title: "Dojo & Training",
+    description:
+      "Scenes from regular training and the dojo environment at Arizona Aikido.",
+    images: [
+      {
+        src: "https://azaikido.org/userimages/20161031001.gif",
+        alt: "First Keiko at the new dojo",
+        caption: "First Keiko at New Dojo - October 27, 2016"
+      },
+      {
+        src: "https://azaikido.org/userimages/20201125001s.jpg",
+        alt: "Training at Arizona Aikido with masks during 2020",
+        caption: "Training at Arizona Aikido in 2019–2020 with safety measures in place."
+      },
+      {
+        src: "https://classpass-res.cloudinary.com/image/upload/f_auto/q_auto%2Cw_1125/media_venue/f7wbbsc1ymqihvv7ifv6.jpg",
+        alt: "Arizona Aikido class on the mat",
+        caption: "Regular keiko on the mat at Arizona Aikido."
+      }
+      // ➕ Add more general dojo/training images here as you copy URLs
+    ]
+  },
+  {
+    id: "new-dojo-2016",
+    title: "Arizona Agatsu Dojo – 2016 Move",
+    description:
+      "Photos from the move to the current dojo on Camelback Road: the new space, paint party, and first keiko.",
+    images: [
+      // NOTE: these are the ones you mentioned: New Dojo 2016, Paint Party,
+      // First Keiko, Mats Placed, etc.
+      // Replace these placeholder objects with the LARGE or MEDIUM URLs you copy
+      // from the original site (see step-by-step below).
+
+      // Example structure:
+      // {
+      //   src: "https://azaikido.org/userimages/20161009001l.jpg",
+      //   alt: "New dojo interior 2016 at Arizona Aikido",
+      //   caption: "New Dojo 2016 – first look at the new space."
+      // },
+      // {
+      //   src: "https://azaikido.org/userimages/20161017002l.jpg",
+      //   alt: "Arizona Aikido members painting and preparing the dojo",
+      //   caption: "Paint Party – members preparing and finishing the new dojo."
+      // },
+      // ...
+    ]
+  },
+  {
+    id: "seminars",
+    title: "Seminars & Visiting Instructors",
+    description:
+      "Events and seminars with visiting instructors and senior teachers connected with Arizona Aikido.",
+    images: [
+      {
+        src: "https://azaikido.org/userimages/20180707002m.jpg",
+        alt: "Cognard Hanshi demonstrating with ken in Phoenix",
+        caption: "Cognard Hanshi visiting Arizona Aikido – ken demonstration (2018)."
+      },
+      // You can add Ikeda seminars, Mary Heiny, Saotome, etc., by copying their large URLs:
+      // {
+      //   src: "https://azaikido.org/userimages/20150119001l.jpg",
+      //   alt: "Saotome Sensei at Redlands Aikikai",
+      //   caption: "Saotome Sensei – August 2013 – Redlands Aikikai."
+      // },
+      // {
+      //   src: "https://azaikido.org/userimages/20190407001l.jpg",
+      //   alt: "Mary Heiny Sensei at Aikido at the Center, Tucson",
+      //   caption: "Mary Heiny Sensei at Aikido at the Center, Tucson, AZ."
+      // }
+    ]
+  },
+  {
+    id: "historical",
+    title: "Historical Photos",
+    description:
+      "Historical photos tied to Arizona Aikido and its teachers, including early dojos and senior instructors.",
+    images: [
+      // These are based on the displaypic pages like:
+      // - Jon Takagi Sensei c. 1970 (imgid=20140312001)
+      // - Koichi Tohei at Phoenix College (imgid=20091127003 / 20091127002 / 20091127006)
+      // - O Sensei's Grave (imgid=20170426001)
+      //
+      // You’ll need to copy the actual large image URLs from your browser.
+      // Here’s how in the next section.
+    ]
+  },
+  {
+    id: "instructors",
+    title: "Instructors & Leaders",
+    description:
+      "Some of the people who have led, taught at, or strongly supported Arizona Aikido over the years.",
+    images: [
+      {
+        src: "https://azaikido.org/userimages/20071021001.jpg",
+        alt: "Don Crawford Sensei portrait",
+        caption: "Don Crawford Sensei – long-time instructor and leader at Arizona Aikido."
+      }
+      // Add other instructors’ photos here as you get their URLs
+    ]
+  }
+];
 ---
 
-<BaseLayout title="Arizona Aikido – Image Galleries">
-  <h1>Image Galleries</h1>
+<BaseLayout title="Arizona Aikido – Image Gallery">
+  <!-- Header -->
+  <section class="border-b border-slate-800 bg-slate-950/90">
+    <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+        Image Gallery
+      </p>
+      <h1 class="mt-2 text-3xl md:text-4xl font-semibold tracking-tight text-slate-50">
+        Arizona Aikido – Photos
+      </h1>
+      <p class="mt-4 text-sm md:text-base text-slate-300 max-w-3xl">
+        Browse photos of the Arizona Agatsu Dojo, seminars, visiting teachers, and historical
+        images connected with Arizona Aikido. Click any photo to open a larger version in a new tab.
+      </p>
+    </div>
+  </section>
 
-  <p>
-    The image gallery on the original site is organized into several collections showing
-    the dojo, its history, and its people.
-  </p>
+  <!-- Gallery sections -->
+  <section class="mx-auto max-w-6xl px-4 py-10 md:py-14 space-y-10 text-slate-200">
+    {gallerySections.map((section) => (
+      <section id={section.id} class="space-y-4">
+        <header class="space-y-1">
+          <h2 class="text-lg md:text-xl font-semibold text-slate-50">
+            {section.title}
+          </h2>
+          <p class="text-xs md:text-sm text-slate-400">
+            {section.description}
+          </p>
+        </header>
 
-  <ul>
-    <li>Arizona Aikido History</li>
-    <li>Aikido Personalities</li>
-    <li>Camps and Seminars</li>
-    <li>Japan Trip – June 2007</li>
-    <li>Arizona Agatsu Dojo</li>
-  </ul>
-
-  <p>
-    Later we can create separate pages or dynamic gallery views for each collection and
-    wire the images to match the existing site.
-  </p>
+        {section.images.length === 0 ? (
+          <p class="text-xs text-slate-500">
+            Images for this section will be added soon.
+          </p>
+        ) : (
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {section.images.map((img) => (
+              <figure class="group overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/80">
+                <a
+                  href={img.src}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="block"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    class="h-52 w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                  />
+                </a>
+                <figcaption class="border-t border-slate-800 px-3 py-2 text-[11px] text-slate-300">
+                  {img.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
+      </section>
+    ))}
+  </section>
 </BaseLayout>

@@ -92,4 +92,114 @@ import BaseLayout from "../layouts/Layout.astro";
       </p>
     </section>
   </section>
+  <!-- Contact form -->
+    <section class="space-y-4 rounded-2xl border border-violet-600/40 bg-slate-900/70 p-6">
+      <h2 class="text-lg font-semibold text-slate-50">Send a message to the dojo</h2>
+      <p class="text-sm text-slate-300">
+        You can use this form to start a conversation about classes, visiting, or seminars. The
+        form will open your email program to send a message to
+        <span class="font-semibold">Contact@AZAikido.org</span>.
+      </p>
+
+      <form
+        action="mailto:Contact@AZAikido.org"
+        method="POST"
+        enctype="text/plain"
+        class="mt-4 grid gap-4 md:grid-cols-2"
+      >
+        <div class="space-y-1 md:col-span-1">
+          <label for="name" class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
+            Name
+          </label>
+          <input
+            id="name"
+            name="Name"
+            type="text"
+            required
+            class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
+          />
+        </div>
+
+        <div class="space-y-1 md:col-span-1">
+          <label
+            for="email"
+            class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300"
+          >
+            Email
+          </label>
+          <input
+            id="email"
+            name="Email"
+            type="email"
+            required
+            class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
+          />
+        </div>
+
+        <div class="space-y-1 md:col-span-1">
+          <label
+            for="phone"
+            class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300"
+          >
+            Phone (optional)
+          </label>
+          <input
+            id="phone"
+            name="Phone"
+            type="tel"
+            class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
+          />
+        </div>
+
+        <div class="space-y-1 md:col-span-1">
+          <label
+            for="interest"
+            class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300"
+          >
+            What are you interested in?
+          </label>
+          <select
+            id="interest"
+            name="Interest"
+            class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
+          >
+            <option value="General question">General question</option>
+            <option value="Starting classes">Starting classes</option>
+            <option value="Youth program">Youth program</option>
+            <option value="Seminars/events">Seminars or events</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="space-y-1 md:col-span-2">
+          <label
+            for="message"
+            class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300"
+          >
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="Message"
+            rows={4}
+            required
+            class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
+          ></textarea>
+        </div>
+
+        <div class="md:col-span-2 flex items-center justify-between gap-3">
+          <button
+            type="submit"
+            class="inline-flex items-center rounded-full border border-violet-500/80 bg-violet-600/90 px-5 py-2.5 text-sm font-semibold text-slate-50 shadow-sm hover:bg-violet-500"
+          >
+            Open email to send
+          </button>
+          <p class="text-[11px] text-slate-400 max-w-xs">
+            This form opens your email app with the details filled in so you can send securely
+            from your own address.
+          </p>
+        </div>
+      </form>
+    </section>
+  </section>
 </BaseLayout>

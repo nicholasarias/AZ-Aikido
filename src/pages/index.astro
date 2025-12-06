@@ -2,174 +2,282 @@
 import BaseLayout from "../layouts/Layout.astro";
 ---
 
-<BaseLayout title="Arizona Aikido – Home">
-  <!-- Hero section -->
-  <section class="border-b border-slate-800 bg-gradient-to-b from-slate-950 to-slate-900">
-    <div
-      class="mx-auto max-w-6xl px-4 py-12 md:py-20 grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-center"
-    >
-      <div class="space-y-6">
-        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
-          Aikido Schools of Ueshiba • Phoenix, AZ asdfasdfasdfasdfasdf
-        </p>
+<BaseLayout title="Arizona Aikido – Phoenix Aikido Dojo">
 
-        <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-slate-50">
-          Train Aikido in a welcoming, community dojo.
-        </h1>
+  <!-- Ripple background layer -->
+  <div id="water-background"></div>
 
-        <p class="text-sm md:text-base text-slate-300 max-w-xl">
-          Arizona Aikido (Arizona Agatsu Dojo) is a community dojo dedicated to the practice of
-          Aikido in central Phoenix. New students, visitors, and youth are welcome.
-        </p>
+  <!-- Main content above the effect -->
+  <div class="relative z-10">
+    <!-- Hero -->
+    <section class="border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900">
+      <div class="mx-auto max-w-6xl px-4 py-10 md:py-16 grid gap-10 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-center">
 
-        <div class="flex flex-wrap gap-3">
-          <a
-            href="/contact"
-            class="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold
-                   bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/40
-                   transition"
-          >
-            Try a Free Class
-          </a>
-          <a
-            href="/schedule"
-            class="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold
-                   border border-slate-600 hover:border-emerald-400 hover:text-emerald-300
-                   text-slate-200 transition"
-          >
-            View Schedule
-          </a>
-        </div>
-
-        <p class="text-xs text-slate-400 max-w-md">
-          You are welcome to wear a mask. Mats and surfaces are cleaned on a regular basis and hand
-          sanitizer is available.
-        </p>
-      </div>
-
-      <!-- Simple image / visual placeholder -->
-      <div
-        class="relative rounded-3xl border border-slate-800 bg-slate-900/70 p-4 shadow-xl shadow-black/50"
-      >
-        <div class="aspect-video w-full overflow-hidden rounded-2xl bg-slate-800">
-          <!-- Replace this gradient block with an actual dojo image later -->
-          <div class="h-full w-full bg-[radial-gradient(circle_at_top,_#22c55e33,_#020617)]" />
-        </div>
-        <div class="mt-4 text-xs text-slate-300 space-y-1">
-          <p class="font-medium text-slate-100">
-            Arizona Agatsu Dojo – 939 W Camelback Rd, Phoenix AZ
+        <!-- Text side -->
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+            Non-profit Aikido dojo
           </p>
-          <p>
-            Easy access from the light rail 7th Avenue station and plenty of parking at the dojo.
+
+          <h1 class="mt-3 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-slate-50">
+            Traditional Aikido training in the heart of Phoenix
+          </h1>
+
+          <p class="mt-4 max-w-xl text-sm md:text-base text-slate-300">
+            Arizona Aikido is a non-profit dojo offering traditional Aikido practice for adults and youth.
+            We emphasize solid basics, cooperative training, and the lineage of Mitsugi Saotome Shihan and
+            Aikido Schools of Ueshiba.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3 text-sm">
+            <a href="/new-students"
+              class="inline-flex items-center rounded-full border border-violet-500/80 bg-violet-600/90 px-5 py-2.5 font-medium text-slate-50 shadow-sm hover:bg-violet-500">
+              New to Aikido? Start here
+            </a>
+
+            <a href="/schedule"
+              class="inline-flex items-center rounded-full border border-slate-700 bg-slate-900/80 px-5 py-2.5 font-medium text-slate-100 hover:border-slate-500">
+              View class schedule
+            </a>
+          </div>
+
+          <div class="mt-5 flex flex-wrap gap-4 text-xs text-slate-400">
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+              <span>Affiliated with Aikido Schools of Ueshiba</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-sky-400"></span>
+              <span>Serving Phoenix since 1968</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual side -->
+        <div class="relative">
+          <div class="absolute -inset-4 -z-10 rounded-3xl bg-[radial-gradient(circle_at_top,_#4c1d9533,_transparent_55%)]"></div>
+
+          <div class="overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/60 shadow-xl">
+            <img src="https://classpass-res.cloudinary.com/image/upload/f_auto/q_auto%2Cw_1125/media_venue/f7wbbsc1ymqihvv7ifv6.jpg"
+              alt="Training at Arizona Aikido"
+              loading="lazy"
+              class="h-64 w-full object-cover object-center md:h-80" />
+          </div>
+
+          <div class="mt-3 rounded-2xl border border-slate-800 bg-slate-900/80 px-4 py-3 text-xs text-slate-300">
+            <p>
+              Classes include ukemi (falling), basic movements, open-hand techniques, and weapons work.
+              New students are welcome to visit and watch or join in at a beginner pace.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Why train here -->
+    <section class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+
+      <div class="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2 class="text-xl md:text-2xl font-semibold text-slate-50">Why train at Arizona Aikido?</h2>
+
+          <p class="mt-2 max-w-2xl text-sm text-slate-300">
+            We aim to offer consistent training, a welcoming community, and a direct connection to the
+            roots of Aikido through our teachers and history.
           </p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Coming up / schedule summary -->
-  <section class="mx-auto max-w-6xl px-4 py-10 md:py-14 space-y-10">
-    <div class="grid gap-8 md:grid-cols-2">
-      <!-- Coming up card -->
-      <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 md:p-7">
-        <h2 class="text-xs font-semibold tracking-[0.25em] uppercase text-emerald-400 mb-2">
-          Coming Up
-        </h2>
-        <p class="text-lg font-semibold text-slate-50 mb-1">
-          Annual Ikeda Shihan Seminar
-        </p>
-        <p class="text-xs text-slate-400 mb-3">December 12–14, 2025 • Arizona Agatsu Dojo</p>
-        <p class="text-sm text-slate-200 mb-4">
-          Hiroshi Ikeda Shihan will teach a weekend seminar at Arizona Agatsu Dojo. See the News
-          and Notes page for full schedule, flier, and registration information.
-        </p>
-        <a
-          href="/news#ikeda-2025"
-          class="inline-flex text-xs font-semibold text-emerald-300 hover:text-emerald-200 underline underline-offset-4"
-        >
-          View seminar details
-        </a>
-      </div>
-
-      <!-- Schedule notice card -->
-      <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 md:p-7">
-        <h2 class="text-xs font-semibold tracking-[0.25em] uppercase text-sky-400 mb-2">
-          Current Schedule
-        </h2>
-        <p class="text-sm text-slate-300 mb-3">
-          The schedule below is the one in effect now and overrides the schedule on the Schedule
-          page.
-        </p>
-        <ul class="space-y-1.5 text-xs text-slate-200">
-          <li>Sunday – 10:00 a.m. to 12:00 p.m. – Karate</li>
-          <li>Monday – 6:00 p.m. to 7:15 p.m. – Zoom class with Ikeda Sensei</li>
-          <li>Tuesday – Aikido basics, youth program, and karate</li>
-          <li>Wednesday – Weapons skills and low impact Aikido</li>
-          <li>Thursday – Aiki youth program and open Aikido class</li>
-          <li>Friday – Aikido open classes and Aikido</li>
-          <li>Saturday – Aikido, beginner to advanced</li>
-        </ul>
-        <p class="mt-3 text-xs text-slate-400">
-          For week by week changes, please check the latest post in the News and Notes section.
-        </p>
-        <div class="mt-3">
-          <a
-            href="/news"
-            class="inline-flex text-xs font-semibold text-sky-300 hover:text-sky-200 underline underline-offset-4"
-          >
-            Go to News and Notes
+      <div class="grid gap-5 md:grid-cols-3">
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
+          <h3 class="text-sm font-semibold text-slate-100">Lineage & history</h3>
+          <p class="mt-2 text-xs md:text-sm text-slate-300">
+            Founded by Jon Mamoru Takagi Sensei in 1968 and later affiliated with Aikido Schools of
+            Ueshiba under Mitsugi Saotome Shihan, Arizona Aikido stands in a clear tradition of Aikido
+            practice.
+          </p>
+          <a href="/biography"
+            class="mt-3 inline-flex text-xs font-semibold text-violet-300 hover:text-violet-200 underline underline-offset-4">
+            Learn about our teachers
           </a>
-        </div>
-      </div>
-    </div>
+        </article>
 
-    <!-- Three quick info panels -->
-    <div class="grid gap-8 md:grid-cols-3">
-      <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 space-y-3">
-        <h3 class="text-base font-semibold text-slate-50">New to Aikido</h3>
-        <p class="text-sm text-slate-300">
-          Prospective students may visit and train up to five times at no charge before deciding to
-          join the dojo.
-        </p>
-        <a
-          href="/cost"
-          class="inline-flex text-xs font-semibold text-emerald-300 hover:text-emerald-200 underline underline-offset-4"
-        >
-          See dues and fees
-        </a>
-      </div>
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
+          <h3 class="text-sm font-semibold text-slate-100">Supportive training</h3>
+          <p class="mt-2 text-xs md:text-sm text-slate-300">
+            Classes are structured so that beginners and advanced students can train together,
+            focusing on safety, clear basics, and cooperative practice instead of competition.
+          </p>
+          <a href="/new-students"
+            class="mt-3 inline-flex text-xs font-semibold text-violet-300 hover:text-violet-200 underline underline-offset-4">
+            Read the new student guide
+          </a>
+        </article>
 
-      <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 space-y-3">
-        <h3 class="text-base font-semibold text-slate-50">Programs</h3>
-        <ul class="text-sm text-slate-300 space-y-1.5">
-          <li>Aikido open classes</li>
-          <li>Foundation basics classes</li>
-          <li>Low impact Aikido</li>
-          <li>Weapons training</li>
-          <li>Youth Aiki program</li>
-          <li>Karate</li>
-        </ul>
-        <a
-          href="/schedule"
-          class="inline-flex text-xs font-semibold text-sky-300 hover:text-sky-200 underline underline-offset-4"
-        >
-          View full schedule
-        </a>
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/70 p-4">
+          <h3 class="text-sm font-semibold text-slate-100">Non-profit dojo</h3>
+          <p class="mt-2 text-xs md:text-sm text-slate-300">
+            Arizona Aikido operates as a non-profit organization. Dues help support the dojo, seminars,
+            and community training rather than a commercial school model.
+          </p>
+          <a href="/cost"
+            class="mt-3 inline-flex text-xs font-semibold text-violet-300 hover:text-violet-200 underline underline-offset-4">
+            Membership & costs
+          </a>
+        </article>
       </div>
 
-      <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 space-y-3">
-        <h3 class="text-base font-semibold text-slate-50">Our Lineage</h3>
-        <p class="text-sm text-slate-300">
-          Arizona Aikido has a long history through teachers such as Jon Mamoru Takagi Sensei and
-          Tsuneji “Tony” Sakakibara Sensei and is affiliated with Aikido Schools of Ueshiba.
-        </p>
-        <a
-          href="/biography"
-          class="inline-flex text-xs font-semibold text-violet-300 hover:text-violet-200 underline underline-offset-4"
-        >
-          Read biographies
-        </a>
+    </section>
+
+    <!-- Classes & schedule -->
+    <section class="mx-auto max-w-6xl px-4 pb-10 md:pb-14">
+      <div class="grid gap-6 md:grid-cols-2">
+
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 md:p-6">
+          <h2 class="text-lg font-semibold text-slate-50">Classes at a glance</h2>
+          <p class="mt-2 text-sm text-slate-300">
+            Arizona Aikido offers classes for adults and youth on multiple days each week. Visitors are
+            welcome to watch or participate.
+          </p>
+          <ul class="mt-4 space-y-1 text-sm text-slate-200">
+            <li>• Adult evening classes during the week</li>
+            <li>• Youth classes on selected days</li>
+            <li>• Weapons classes integrated into the regular schedule</li>
+            <li>• Seminars and special events throughout the year</li>
+          </ul>
+          <a href="/schedule"
+            class="mt-4 inline-flex text-xs font-semibold text-violet-300 hover:text-violet-200 underline underline-offset-4">
+            View detailed schedule
+          </a>
+        </article>
+
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 md:p-6 space-y-3">
+          <h2 class="text-lg font-semibold text-slate-50">Visit the dojo</h2>
+          <p class="text-sm text-slate-300">
+            The dojo is located on West Camelback Road in central Phoenix, with easy access by car and
+            light rail.
+          </p>
+
+          <div class="text-sm text-slate-100">
+            <p>Arizona Aikido – Agatsu Dojo</p>
+            <p>939 W Camelback Rd</p>
+            <p>Phoenix, AZ 85013</p>
+          </div>
+
+          <p class="text-sm text-slate-300">
+            Phone:
+            <a href="tel:16022668321" class="font-semibold text-violet-300 hover:text-violet-200">
+              602-266-8321
+            </a><br />
+            Email:
+            <a href="mailto:Contact@AZAikido.org" class="font-semibold text-violet-300 hover:text-violet-200">
+              Contact@AZAikido.org
+            </a>
+          </p>
+
+          <div class="flex flex-wrap gap-3 text-xs">
+            <a href="/directions"
+              class="inline-flex items-center rounded-full border border-slate-600 bg-slate-950 px-4 py-2 font-semibold text-slate-100 hover:border-violet-400">
+              Directions & map
+            </a>
+            <a href="/contact"
+              class="inline-flex items-center rounded-full border border-violet-500/80 bg-violet-600/90 px-4 py-2 font-semibold text-slate-50 hover:bg-violet-500">
+              Contact the dojo
+            </a>
+          </div>
+
+          <p class="text-[11px] text-slate-500">
+            Class times and events can sometimes change. Please confirm by checking the schedule or contacting
+            the dojo.
+          </p>
+        </article>
+
       </div>
-    </div>
-  </section>
+    </section>
+
+  </div>
+
+ <!-- Ripple animation script: runs once per page load -->
+<script is:inline>
+  const waterBackground = document.getElementById("water-background");
+  let startTime = null;
+  let isRippling = false;
+  const RIPPLE_DURATION_MS = 15000;
+
+  const easeOutQuad = (t) => t * (2 - t);
+
+  function startRipple() {
+    if (isRippling || !waterBackground) return;
+    isRippling = true;
+    startTime = null;
+    waterBackground.style.setProperty("--ripple-size", "0%");
+    waterBackground.style.opacity = "1";
+    requestAnimationFrame(animateRipple);
+  }
+
+  function animateRipple(timestamp) {
+    if (!isRippling || !waterBackground) return;
+
+    if (!startTime) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+    const t = Math.min(1, elapsed / RIPPLE_DURATION_MS);
+    const easedT = easeOutQuad(t);
+
+    const currentSize = 100 + easedT * 7900;
+
+    let currentAlpha = 1;
+    if (t >= 0.8) {
+      const fadeProgress = (t - 0.8) / 0.2;
+      currentAlpha = 1 - fadeProgress;
+    }
+
+    waterBackground.style.setProperty("--ripple-size", currentSize + "%");
+    waterBackground.style.opacity = String(currentAlpha);
+
+    if (t < 1) {
+      requestAnimationFrame(animateRipple);
+    } else {
+      isRippling = false;
+      waterBackground.style.opacity = "0";
+    }
+  }
+
+  window.addEventListener("load", () => {
+    setTimeout(startRipple, 100);
+  });
+</script>
+
+
+  <!-- Ripple styles -->
+  <style>
+    #water-background {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+
+      --ripple-size: 0%;
+      background-color: #051A33;
+      background-image: radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 1%,
+        rgba(255, 255, 255, 0.1) 1.1%,
+        rgba(0, 0, 0, 0.2) 1.2%,
+        transparent 1.5%,
+        transparent 100%
+      );
+      background-size: var(--ripple-size) var(--ripple-size);
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      mix-blend-mode: screen;
+      z-index: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+
 </BaseLayout>
