@@ -1,144 +1,101 @@
 ---
 import BaseLayout from "../../layouts/Layout.astro";
+
+const instructors = [
+  {
+    name: "Jon Mamoru Takagi",
+    role: "Founder of Arizona Aikido",
+    href: "/biography/takagi",
+    img: "https://azaikido.org/userimages/20131011001.jpg",
+    position: "50% 50%"
+  },
+  {
+    name: "Tsuneji Sakakibara",
+    role: "Senior teacher and technical advisor",
+    href: "/biography/sakakibara",
+    img: "https://azaikido.org/userimages/20130723001.jpg",
+    position: "50% 15%"
+  },
+  {
+    name: "Yon Makino",
+    role: "Senior instructor",
+    href: "/biography/makino",
+    img: "https://azaikido.org/userimages//20150415002.gif",
+    position: "50% 25%"
+  },
+  {
+    name: "Tom Haines",
+    role: "Chief instructor and leader",
+    href: "/biography/haines",
+    img: "https://azaikido.org/userimages//20070708001.jpg",
+    position: "50% 10%"
+  },
+  {
+    name: "Don Crawford",
+    role: "Instructor and past president",
+    href: "/biography/crawford",
+    img: "https://azaikido.org/userimages/20071021001.jpg",
+    position: "50% 15%"
+  }
+];
 ---
 
-<BaseLayout title="Arizona Aikido – Biographies">
-  <!-- Header -->
+<BaseLayout title="Arizona Aikido – Teachers and Biographies">
+  <!-- Page header -->
   <section class="border-b border-slate-800 bg-slate-950/90">
-    <div class="mx-auto max-w-6xl px-4 py-8 md:py-12">
-      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
-        Our teachers
-      </p>
-      <h1 class="mt-2 text-3xl md:text-4xl font-semibold tracking-tight text-slate-50">
-        Biographies
+    <div class="mx-auto max-w-6xl px-4 py-8 md:py-10">
+      <h1 class="text-2xl md:text-3xl font-semibold text-slate-50">
+        Teachers and history
       </h1>
-      <p class="mt-3 text-sm md:text-base text-slate-300 max-w-2xl">
-        Arizona Aikido has grown through the work of dedicated instructors. These are some of the
-        key teachers in the dojo’s history and current leadership, with links to their full
-        biographies.
+      <p class="mt-3 text-sm md:text-base text-slate-300 max-w-3xl">
+        Arizona Aikido stands on the work of many instructors and senior
+        students. The people below represent key figures in the dojo’s
+        lineage and leadership. Tap or click a card to read the full
+        biography.
       </p>
     </div>
   </section>
 
   <!-- Instructor cards -->
-  <section class="mx-auto max-w-6xl px-4 py-10 md:py-12 space-y-8">
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      <!-- Jon Mamoru Takagi -->
-      <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 flex flex-col">
-        <img
-          src="https://azaikido.org/userimages//20070525002.jpg"
-          alt="Jon Mamoru Takagi Sensei"
-          loading="lazy"
-          class="mb-4 h-64 w-full rounded-xl object-cover object-[50%_10%]"
-        />
-        <h2 class="text-lg font-semibold text-slate-50">Jon Mamoru Takagi Sensei</h2>
-        <p class="mt-1 text-xs text-slate-400">Founder of Arizona Aikikai (1968)</p>
-        <p class="mt-4 text-sm text-slate-300 flex-1">
-          Second-generation Japanese American from Honolulu who began Aikido in the late 1950s and
-          later founded Arizona Aikikai in Phoenix, creating the base from which Arizona Aikido
-          developed.
-        </p>
+  <section class="mx-auto max-w-6xl px-4 py-8 md:py-12 space-y-8">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {instructors.map((person) => (
         <a
-          href="/biography/takagi"
-          class="mt-4 inline-flex text-xs font-semibold text-violet-300 hover:text-violet-200 underline underline-offset-4"
+          href={person.href}
+          class="group flex flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/80"
         >
-          View full biography
+          <div class="h-56 sm:h-60 w-full overflow-hidden bg-slate-900">
+            <img
+              src={person.img}
+              alt={person.name}
+              loading="lazy"
+              class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              style={`object-position: ${person.position};`}
+            />
+          </div>
+          <div class="px-4 py-3 space-y-1">
+            <h2 class="text-sm font-semibold text-slate-50">
+              {person.name}
+            </h2>
+            <p class="text-[11px] text-slate-400">
+              {person.role}
+            </p>
+            <p class="text-[11px] text-violet-300 group-hover:text-violet-200">
+              Read full biography →
+            </p>
+          </div>
         </a>
-      </article>
-
-      <!-- Tsuneji "Tony" Sakakibara -->
-      <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 flex flex-col">
-        <img
-          src="https://azaikido.org/userimages//20070525001.jpg"
-          alt='Tsuneji "Tony" Sakakibara Sensei'
-          loading="lazy"
-          class="mb-4 h-64 w-full rounded-xl object-cover object-[50%_25%]"
-        />
-        <h2 class="text-lg font-semibold text-slate-50">Tsuneji “Tony” Sakakibara Sensei</h2>
-        <p class="mt-1 text-xs text-slate-400">
-          Chief Instructor & later Chief Instructor Emeritus
-        </p>
-        <p class="mt-4 text-sm text-slate-300 flex-1">
-          Born in Handa, Japan, with a strong Judo background, he began Aikido with Takagi Sensei in
-          1968 and later led Arizona Aikido through organizational changes and into affiliation with
-          Aikido Schools of Ueshiba.
-        </p>
-        <a
-          href="/biography/sakakibara"
-          class="mt-4 inline-flex text-xs font-semibold text-violet-300 hover:text-violet-200 underline underline-offset-4"
-        >
-          View full biography
-        </a>
-      </article>
-
-      <!-- Tom Haines -->
-      <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 flex flex-col">
-        <img
-          src="https://azaikido.org/userimages//20070708001.jpg"
-          alt="Tom Haines Sensei"
-          loading="lazy"
-          class="mb-4 h-64 w-full rounded-xl object-cover object-[50%_15%]"
-        />
-        <h2 class="text-lg font-semibold text-slate-50">Tom Haines Sensei</h2>
-        <p class="mt-1 text-xs text-slate-400">President & Chief Instructor</p>
-        <p class="mt-4 text-sm text-slate-300 flex-1">
-          Began training at Arizona Aikikai in the early 1970s and went on to receive dan rankings
-          through multiple organizations, eventually becoming President and Chief Instructor of
-          Arizona Aikido.
-        </p>
-        <a
-          href="/biography/haines"
-          class="mt-4 inline-flex text-xs font-semibold text-violet-300 hover:text-violet-200 underline underline-offset-4"
-        >
-          View full biography
-        </a>
-      </article>
-
-      <!-- Don Crawford -->
-      <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 flex flex-col">
-        <img
-          src="https://azaikido.org/userimages//20071021001.jpg"
-          alt="Don Crawford Sensei"
-          loading="lazy"
-          class="mb-4 h-64 w-full rounded-xl object-cover object-[50%_15%]"
-        />
-        <h2 class="text-lg font-semibold text-slate-50">Don Crawford Sensei</h2>
-        <p class="mt-1 text-xs text-slate-400">Senior instructor & officer</p>
-        <p class="mt-4 text-sm text-slate-300 flex-1">
-          Began Aikido in January 1980 under Tsuneji Sakakibara Sensei and Jon Takagi Sensei, and
-          has since received dan ranks from TK Chiba, Hiroshi Ikeda, and Mitsugi Saotome. He has
-          served as president and now treasurer of Arizona Aikido.
-        </p>
-        <a
-          href="/biography/crawford"
-          class="mt-4 inline-flex text-xs font-semibold text-violet-300 hover:text-violet-200 underline underline-offset-4"
-        >
-          View full biography
-        </a>
-      </article>
-
-      <!-- Yon Makino -->
-      <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 flex flex-col">
-        <img
-          src="https://azaikido.org/userimages//20150415002.gif"
-          alt="Yon Makino Sensei"
-          loading="lazy"
-          class="mb-4 h-64 w-full rounded-xl object-cover object-[50%_32%]"
-        />
-        <h2 class="text-lg font-semibold text-slate-50">Yon Makino Sensei</h2>
-        <p class="mt-1 text-xs text-slate-400">Senior instructor</p>
-        <p class="mt-4 text-sm text-slate-300 flex-1">
-          Started Aikido as a junior-high student, continued training in several countries, and
-          eventually made Arizona Aikido his home dojo, where he teaches and holds high rank in
-          Aikido Schools of Ueshiba.
-        </p>
-        <a
-          href="/biography/makino"
-          class="mt-4 inline-flex text-xs font-semibold text-violet-300 hover:text-violet-200 underline underline-offset-4"
-        >
-          View full biography
-        </a>
-      </article>
+      ))}
     </div>
+
+    <p class="text-xs text-slate-400">
+      Additional historical photos and context are available in the
+      <a
+        href="/gallery#historical"
+        class="text-violet-300 hover:text-violet-200 underline underline-offset-4"
+      >
+        historical image gallery
+      </a>.
+    </p>
   </section>
 </BaseLayout>

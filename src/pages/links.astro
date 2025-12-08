@@ -245,31 +245,32 @@ const equipmentVendors = [
 <BaseLayout title="Arizona Aikido – Links">
   <!-- Header -->
   <section class="border-b border-slate-800 bg-slate-950/90">
-    <div class="mx-auto max-w-5xl px-4 py-10 md:py-14">
-      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+    <div class="mx-auto max-w-5xl px-4 py-8 md:py-14">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-violet-400">
         Resources
       </p>
       <h1 class="mt-2 text-3xl md:text-4xl font-semibold tracking-tight text-slate-50">
-        Links & Resources
+        Links &amp; Resources
       </h1>
-      <p class="mt-4 text-sm md:text-base text-slate-300 max-w-3xl">
+      <p class="mt-4 text-sm md:text-base text-slate-300 max-w-3xl leading-relaxed">
         Expand a section below to view Aikido media resources, Aikido Schools of Ueshiba dojos,
         and equipment suppliers.
       </p>
     </div>
   </section>
 
+  <!-- Content -->
   <section
-    class="mx-auto max-w-5xl px-4 py-10 md:py-14 space-y-6 text-sm md:text-base text-slate-200"
+    class="mx-auto max-w-5xl px-4 py-8 md:py-14 space-y-6 text-sm md:text-base text-slate-200 leading-relaxed"
   >
     <!-- Aikido Media & Information -->
     <details class="group rounded-2xl border border-slate-800 bg-slate-900/70">
       <summary
-        class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4"
+        class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
       >
         <div>
           <h2 class="text-sm md:text-base font-semibold text-slate-50">
-            Aikido Media & Information
+            Aikido Media &amp; Information
           </h2>
           <p class="mt-1 text-xs text-slate-400">
             Articles, history, forums, and general Aikido resources.
@@ -277,11 +278,13 @@ const equipmentVendors = [
         </div>
         <span
           class="text-xs text-slate-400 transition-transform group-open:rotate-90"
+          aria-hidden="true"
         >
           ▶
         </span>
       </summary>
-      <div class="border-t border-slate-800 px-4 py-4 md:px-5 md:py-5 space-y-3">
+
+      <div class="border-t border-slate-800 px-4 py-3 md:px-5 md:py-5 space-y-3">
         {aikidoMedia.map((item) => (
           <article class="rounded-xl border border-slate-800 bg-slate-950/80 p-3 md:p-4">
             <h3 class="text-sm md:text-base font-semibold text-slate-50">
@@ -289,12 +292,12 @@ const equipmentVendors = [
                 href={item.url}
                 target="_blank"
                 rel="noreferrer"
-                class="hover:text-violet-300"
+                class="hover:text-violet-300 break-words"
               >
                 {item.name}
               </a>
             </h3>
-            <p class="mt-1 text-[11px] md:text-xs text-slate-400">
+            <p class="mt-1 text-[11px] md:text-xs text-slate-400 break-all">
               {item.url.replace("https://", "")}
             </p>
             <p class="mt-2 text-xs md:text-sm text-slate-200">
@@ -308,11 +311,11 @@ const equipmentVendors = [
     <!-- ASU & affiliated dojos -->
     <details class="group rounded-2xl border border-slate-800 bg-slate-900/70">
       <summary
-        class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4"
+        class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
       >
         <div>
           <h2 class="text-sm md:text-base font-semibold text-slate-50">
-            Aikido Schools of Ueshiba & Affiliated Dojos
+            Aikido Schools of Ueshiba &amp; Affiliated Dojos
           </h2>
           <p class="mt-1 text-xs text-slate-400">
             Dojos historically connected with Arizona Aikido or ASU.
@@ -320,11 +323,13 @@ const equipmentVendors = [
         </div>
         <span
           class="text-xs text-slate-400 transition-transform group-open:rotate-90"
+          aria-hidden="true"
         >
           ▶
         </span>
       </summary>
-      <div class="border-t border-slate-800 px-4 py-4 md:px-5 md:py-5 space-y-3">
+
+      <div class="border-t border-slate-800 px-4 py-3 md:px-5 md:py-5 space-y-3">
         {asuDojos.map((dojo) => (
           <article class="rounded-xl border border-slate-800 bg-slate-950/80 p-3 md:p-4">
             <h3 class="text-sm md:text-base font-semibold text-slate-50">
@@ -332,7 +337,7 @@ const equipmentVendors = [
                 href={dojo.url}
                 target="_blank"
                 rel="noreferrer"
-                class="hover:text-violet-300"
+                class="hover:text-violet-300 break-words"
               >
                 {dojo.name}
               </a>
@@ -371,11 +376,11 @@ const equipmentVendors = [
     <!-- Equipment & uniforms -->
     <details class="group rounded-2xl border border-slate-800 bg-slate-900/70">
       <summary
-        class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4"
+        class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
       >
         <div>
           <h2 class="text-sm md:text-base font-semibold text-slate-50">
-            Equipment & Uniforms
+            Equipment &amp; Uniforms
           </h2>
           <p class="mt-1 text-xs text-slate-400">
             Vendors for dogi, hakama, weapons, and other training equipment.
@@ -383,11 +388,13 @@ const equipmentVendors = [
         </div>
         <span
           class="text-xs text-slate-400 transition-transform group-open:rotate-90"
+          aria-hidden="true"
         >
           ▶
         </span>
       </summary>
-      <div class="border-t border-slate-800 px-4 py-4 md:px-5 md:py-5 space-y-3">
+
+      <div class="border-t border-slate-800 px-4 py-3 md:px-5 md:py-5 space-y-3">
         {equipmentVendors.map((vendor) => (
           <article class="rounded-xl border border-slate-800 bg-slate-950/80 p-3 md:p-4">
             <h3 class="text-sm md:text-base font-semibold text-slate-50">
@@ -395,12 +402,12 @@ const equipmentVendors = [
                 href={vendor.url}
                 target="_blank"
                 rel="noreferrer"
-                class="hover:text-violet-300"
+                class="hover:text-violet-300 break-words"
               >
                 {vendor.name}
               </a>
             </h3>
-            <p class="mt-1 text-[11px] md:text-xs text-slate-400">
+            <p class="mt-1 text-[11px] md:text-xs text-slate-400 break-all">
               {vendor.url.replace("https://", "")}
             </p>
             <p class="mt-2 text-xs md:text-sm text-slate-200">

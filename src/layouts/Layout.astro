@@ -16,14 +16,14 @@ const { title = "Arizona Aikido" } = Astro.props;
       name="description"
       content="Arizona Aikido is a non-profit Aikido dojo in Phoenix, Arizona, offering traditional Aikido training for adults and youth."
     />
-
-    <!-- You can add favicon links here later -->
   </head>
+
+  
   <body class="min-h-full bg-slate-950 text-slate-100 antialiased">
     <!-- Site shell -->
     <div class="flex min-h-screen flex-col">
       <!-- Header / Nav -->
-      <header class="border-b border-slate-800 bg-slate-950/95 backdrop-blur">
+      <header class="border-b border-slate-800 bg-slate-950/95 backdrop-blur sticky top-0 z-30">
         <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:py-4">
           <!-- Logo + name -->
           <a href="/" class="flex items-center gap-3">
@@ -31,7 +31,7 @@ const { title = "Arizona Aikido" } = Astro.props;
               class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 ring-1 ring-violet-500/70"
             >
               <img
-                src="https://azaikido.org/images/AZAikidoLogoSml.gif"
+                src="Images/az-aikido-logo-no-white.png"
                 alt="Arizona Aikido logo"
                 class="h-8 w-8 object-contain"
               />
@@ -51,6 +51,7 @@ const { title = "Arizona Aikido" } = Astro.props;
             <a href="/" class="hover:text-violet-300">Home</a>
             <a href="/new-students" class="hover:text-violet-300">New Students</a>
             <a href="/schedule" class="hover:text-violet-300">Schedule</a>
+            <a href="/news" class="hover:text-violet-300">News</a>
             <a href="/biography" class="hover:text-violet-300">Biographies</a>
             <a href="/gallery" class="hover:text-violet-300">Gallery</a>
             <a href="/cost" class="hover:text-violet-300">Costs</a>
@@ -86,6 +87,12 @@ const { title = "Arizona Aikido" } = Astro.props;
                 class="block rounded-md px-3 py-1.5 text-slate-200 hover:bg-slate-800/80"
               >
                 Schedule
+              </a>
+               <a
+                href="/news"
+                class="block rounded-md px-3 py-1.5 text-slate-200 hover:bg-slate-800/80"
+              >
+                News
               </a>
               <a
                 href="/biography"
