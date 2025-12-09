@@ -1,140 +1,232 @@
 ---
 import BaseLayout from "../layouts/Layout.astro";
+
+const newsItems = [
+  {
+    id: "2025-winter-seminar",
+    title: "Winter Seminar – February 15–16, 2025",
+    date: "February 15–16, 2025",
+    year: 2025,
+    category: "Seminar",
+    isRecent: true,
+    body: [
+      "Arizona Aikido will host a weekend seminar at the Agatsu Dojo focusing on fundamentals, ukemi, and weapons integration. All current students and visitors from other dojos are welcome.",
+      "Classes will include basics, open-hand technique, and weapons work appropriate to the level of the group. Beginners may participate at a comfortable pace."
+    ]
+  },
+  {
+    id: "2025-tony-support",
+    title: "Support for Tony – Ongoing donations",
+    date: "January 10, 2025",
+    year: 2025,
+    category: "Dojo Community",
+    isRecent: true,
+    paypalUrl: "https://www.paypal.com/webapps/shoppingcart?flowlogging_id=f75150565cae7#/checkout/shoppingCart",
+    body: [
+      "Members and friends of Arizona Aikido have asked for a way to provide financial support for Tony. An online donation link is available for those who wish to help.",
+      "Donations are voluntary and separate from regular dojo dues. Thank you for any assistance you choose to offer."
+    ]
+  },
+  {
+    id: "2024-schedule-reminder",
+    title: "Schedule reminders and holiday changes",
+    date: "December 5, 2024",
+    year: 2024,
+    category: "Schedule",
+    isRecent: true,
+    body: [
+      "Class times may shift around major holidays or when the dojo is hosting seminars. Please check the Schedule page and the latest News posts for any changes before visiting.",
+      "If you are a new student planning your first class, you may also email or call ahead to confirm the best day to begin."
+    ]
+  },
+  {
+    id: "2018-50th-anniversary",
+    title: "50th Anniversary Seminar with Saotome Shihan",
+    date: "May 11–13, 2018",
+    year: 2018,
+    category: "Archive – Seminar",
+    isRecent: false,
+    body: [
+      "In 2018 Arizona Aikido celebrated the 50th anniversary of its founding with a seminar led by Mitsugi Saotome Shihan at the Camelback Road dojo.",
+      "Many current and former students, as well as visitors from other dojos, joined in to mark this milestone in the dojo’s history."
+    ]
+  },
+  {
+    id: "2016-new-dojo-opening",
+    title: "Opening of the Camelback Road dojo",
+    date: "December 17, 2016",
+    year: 2016,
+    category: "Archive – Dojo History",
+    isRecent: false,
+    body: [
+      "Arizona Aikido completed the move to the current dojo at 939 W Camelback Rd in late 2016. Students and friends helped with painting, mat installation, and the first keiko in the new space.",
+      "Photos of the move and early classes at the new dojo are available in the Image Gallery."
+    ]
+  }
+];
+
+const recentNews = newsItems.filter((item) => item.isRecent);
+
+const archiveByYear = newsItems.reduce((acc, item) => {
+  const y = item.year;
+  if (!acc[y]) acc[y] = [];
+  acc[y].push(item);
+  return acc;
+}, {});
+
+const sortedYears = Object.keys(archiveByYear)
+  .map((y) => Number(y))
+  .sort((a, b) => b - a);
 ---
 
 <BaseLayout title="Arizona Aikido – News and Notes">
+  <!-- Header -->
   <section class="border-b border-slate-800 bg-slate-950/90">
-    <div class="mx-auto max-w-6xl px-4 py-8 md:py-12">
-      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
-        Dojo updates
+    <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-sky-400">
+        News &amp; notes
       </p>
       <h1 class="mt-2 text-3xl md:text-4xl font-semibold tracking-tight text-slate-50">
-        News and Notes
+        Dojo News and Announcements
       </h1>
-      <p class="mt-3 text-sm md:text-base text-slate-300 max-w-2xl">
-        Current announcements, seminar information, and schedule changes for Arizona Aikido.
-        For weekly training times also see the Training Schedule page.
+      <p class="mt-4 text-sm md:text-base text-slate-300 max-w-3xl">
+        This page highlights current announcements, seminar information, and notes about schedule changes
+        at Arizona Aikido. Older posts are kept in the archive below so you can look back through the
+        dojo’s history.
       </p>
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-4 py-10 md:py-12 space-y-8">
-    <!-- Schedule notice card -->
-    <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 md:p-7 space-y-4">
-      <div class="flex flex-wrap items-baseline justify-between gap-2">
-        <h2 class="text-lg md:text-xl font-semibold text-slate-50">
-          Current class schedule in effect
-        </h2>
-        <p class="text-xs text-slate-400">Posted 1 December 2025</p>
-      </div>
-
-      <p class="text-sm text-slate-300">
-        The schedule below is the one in effect and replaces the schedule shown on the Training
-        Schedule page. Please check here for the latest times before you come to train.
-      </p>
-
-      <ul class="space-y-1.5 text-xs md:text-sm text-slate-200">
-        <li>Sunday – 10:00 a.m. to 12:00 p.m. – Karate</li>
-        <li>Monday – 6:00 p.m. to 7:15 p.m. – Zoom class with Ikeda Sensei</li>
-        <li>Tuesday – 4:30 p.m. to 5:30 p.m. – Aikido basics</li>
-        <li>Tuesday – 5:30 p.m. to 6:30 p.m. – Aiki youth class</li>
-        <li>Tuesday – 6:30 p.m. to 7:20 p.m. – Karate</li>
-        <li>Wednesday – 6:00 p.m. to 7:00 p.m. – Weapons skills</li>
-        <li>Wednesday – 7:00 p.m. to 8:00 p.m. – Low impact Aikido</li>
-        <li>Thursday – 5:30 p.m. to 7:00 p.m. – Aiki youth program</li>
-        <li>Thursday – 7:00 p.m. to 8:00 p.m. – Aikido open class</li>
-        <li>Friday – 6:00 p.m. to 7:15 p.m. – Aikido open class</li>
-        <li>Friday – 7:30 p.m. to 8:45 p.m. – Aikido</li>
-        <li>Saturday – 10:45 a.m. to 11:45 a.m. – Aikido, beginner to advanced</li>
-      </ul>
-
-      <p class="text-xs text-slate-400">
-        You are welcome to wear a mask. Hand sanitizer is available and mats and surfaces are cleaned
-        on a regular basis.
-      </p>
-    </article>
-
-    <!-- Ikeda seminar card -->
-    <article
-      id="ikeda-2025"
-      class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 md:p-7 space-y-4"
-    >
-      <div class="flex flex-wrap items-baseline justify-between gap-2">
-        <h2 class="text-lg md:text-xl font-semibold text-slate-50">
-          Annual Ikeda Shihan Seminar – December 12 to 14, 2025
-        </h2>
-        <p class="text-xs text-slate-400">Posted 13 November 2025</p>
-      </div>
-
-      <p class="text-sm text-slate-300">
-        Hiroshi Ikeda Shihan will teach a weekend seminar at Arizona Agatsu Dojo in Phoenix on
-        December 12 through 14, 2025. He has supported Arizona Aikido for many years and this is a
-        chance to train with him in person.
-      </p>
-
-      <div class="grid gap-4 md:grid-cols-2 text-sm text-slate-200">
-        <div>
-          <h3 class="text-sm font-semibold text-slate-100">Location</h3>
-          <p>
-            Arizona Agatsu Dojo<br />
-            939 W Camelback Rd<br />
-            Phoenix, AZ 85013
+  <!-- Main content -->
+  <section
+    class="mx-auto max-w-6xl px-4 py-10 md:py-14 space-y-10 text-sm md:text-base text-slate-200"
+  >
+    <div class="grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+      <!-- Recent news -->
+      <section class="space-y-5">
+        <header class="space-y-2">
+          <h2 class="text-lg md:text-xl font-semibold text-slate-50">
+            Recent news
+          </h2>
+          <p class="text-xs md:text-sm text-slate-400">
+            These items are the most relevant for planning training, seminars, and visits in the near future.
           </p>
-          <p class="mt-2 text-xs text-slate-400">
-            Easy access from the light rail 7th Avenue station and plenty of parking on site.
+        </header>
+
+        {recentNews.length === 0 ? (
+          <p class="text-xs md:text-sm text-slate-400">
+            There are no recent announcements at the moment. Please check back soon or contact the dojo
+            for the latest information.
           </p>
+        ) : (
+          <div class="space-y-5">
+            {recentNews.map((item) => (
+              <article
+                id={item.id}
+                class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 md:p-6 space-y-3"
+              >
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <p class="text-[0.65rem] md:text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">
+                    {item.category}
+                  </p>
+                  <p class="text-[0.65rem] md:text-xs text-slate-400">
+                    {item.date}
+                  </p>
+                </div>
+
+                <h3 class="text-base md:text-lg font-semibold text-slate-50">
+                  {item.title}
+                </h3>
+
+                <div class="space-y-2 text-xs md:text-sm text-slate-200">
+                  {item.body.map((paragraph) => (
+                    <p>{paragraph}</p>
+                  ))}
+                </div>
+
+                {item.paypalUrl && (
+                  <div class="pt-2">
+                    <a
+                      href={item.paypalUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      class="inline-flex items-center rounded-full border border-amber-400/70 bg-amber-500/90 px-4 py-2 text-xs md:text-sm font-semibold text-slate-950 shadow-sm hover:bg-amber-400"
+                    >
+                      Donate via PayPal
+                    </a>
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+
+      <!-- Archive sidebar -->
+      <aside class="space-y-4">
+        <header class="space-y-1">
+          <h2 class="text-sm md:text-base font-semibold text-slate-50">
+            Archive by year
+          </h2>
+          <p class="text-xs text-slate-400">
+            Open a year below to view older announcements and historical posts.
+          </p>
+        </header>
+
+        <div class="space-y-3">
+          {sortedYears.map((year) => (
+            <details class="group rounded-2xl border border-slate-800 bg-slate-900/70">
+              <summary
+                class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4"
+              >
+                <div>
+                  <h3 class="text-sm md:text-base font-semibold text-slate-50">
+                    {year} archive
+                  </h3>
+                  <p class="mt-1 text-[11px] md:text-xs text-slate-400">
+                    {archiveByYear[year].length} post{archiveByYear[year].length > 1 ? "s" : ""} from {year}.
+                  </p>
+                </div>
+                <span class="text-xs text-slate-400 transition-transform group-open:rotate-90">
+                  ▶
+                </span>
+              </summary>
+
+              <div class="border-t border-slate-800 px-4 py-3 md:px-5 md:py-4 space-y-3">
+                {archiveByYear[year].map((item) => (
+                  <article
+                    id={item.id + "-archive"}
+                    class="rounded-xl border border-slate-800 bg-slate-950/80 p-3 md:p-4 space-y-1.5"
+                  >
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                      <p class="text-[0.6rem] md:text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-400">
+                        {item.category}
+                      </p>
+                      <p class="text-[0.6rem] md:text-[0.65rem] text-slate-500">
+                        {item.date}
+                      </p>
+                    </div>
+                    <h4 class="text-xs md:text-sm font-semibold text-slate-50">
+                      {item.title}
+                    </h4>
+                    <div class="space-y-1 text-[11px] md:text-xs text-slate-300">
+                      {item.body.map((paragraph) => (
+                        <p>{paragraph}</p>
+                      ))}
+                    </div>
+                    <a
+                      href={"#" + item.id}
+                      class="mt-1 inline-flex text-[0.6rem] md:text-[0.65rem] font-semibold text-violet-300 hover:text-violet-200 underline underline-offset-4"
+                    >
+                      Jump to recent view
+                    </a>
+                  </article>
+                ))}
+              </div>
+            </details>
+          ))}
         </div>
-        <div>
-          <h3 class="text-sm font-semibold text-slate-100">Details</h3>
-          <p>
-            The original site provides a seminar flier and payment options, including PayPal for the
-            full seminar or single sessions, and information about a Saturday night party at the
-            dojo.
-          </p>
-          <p class="mt-2 text-xs text-slate-400">
-            When you rebuild that part, you can add buttons here for online registration and a link
-            to the flier PDF.
-          </p>
-        </div>
-      </div>
-    </article>
-
-    <!-- Memorial card – Sakakibara Sensei -->
-    <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 md:p-7 space-y-4">
-      <div class="flex flex-wrap items-baseline justify-between gap-2">
-        <h2 class="text-lg md:text-xl font-semibold text-slate-50">
-          Remembering Tsuneji “Tony” Sakakibara Sensei
-        </h2>
-        <p class="text-xs text-slate-400">Posted 22 July 2025</p>
-      </div>
-
-      <p class="text-sm text-slate-300">
-        The dojo remembers Sakakibara Sensei on the anniversary of his passing. After the death of
-        Jon Takagi Sensei in 1984 he served as chief instructor, reconnected the dojo with Hombu
-        Dojo in Tokyo, and helped maintain the Arizona Aikido community.
-      </p>
-
-      <p class="text-sm text-slate-300">
-        The original site includes photos and a note about the scholarship fund created in his name.
-      </p>
-    </article>
-
-    <!-- Memorial card – O Sensei -->
-    <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 md:p-7 space-y-4">
-      <div class="flex flex-wrap items-baseline justify-between gap-2">
-        <h2 class="text-lg md:text-xl font-semibold text-slate-50">
-          Remembering O Sensei
-        </h2>
-        <p class="text-xs text-slate-400">Posted 26 April 2025</p>
-      </div>
-
-      <p class="text-sm text-slate-300">
-        Aikido founder Morihei Ueshiba died on April 26, 1969. Arizona Aikido marks this date each
-        year. The original post provides photos of his graves and links to a detailed biography and
-        history of his training.
-      </p>
-    </article>
-
-    <!-- You can add more older news items below in the same card style when you are ready -->
+      </aside>
+    </div>
   </section>
 </BaseLayout>
