@@ -110,9 +110,8 @@ import BaseLayout from "../layouts/Layout.astro";
       </p>
 
       <form
-        action="mailto:Contact@AZAikido.org"
+        action="/api/contact"
         method="POST"
-        enctype="text/plain"
         class="mt-4 grid gap-4 md:grid-cols-2"
       >
 
@@ -123,7 +122,7 @@ import BaseLayout from "../layouts/Layout.astro";
           </label>
           <input
             id="name"
-            name="Name"
+            name="name"
             type="text"
             required
             class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
@@ -137,7 +136,7 @@ import BaseLayout from "../layouts/Layout.astro";
           </label>
           <input
             id="email"
-            name="Email"
+            name="email"
             type="email"
             required
             class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
@@ -151,7 +150,7 @@ import BaseLayout from "../layouts/Layout.astro";
           </label>
           <input
             id="phone"
-            name="Phone"
+            name="phone"
             type="tel"
             class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
           />
@@ -164,14 +163,13 @@ import BaseLayout from "../layouts/Layout.astro";
           </label>
           <select
             id="interest"
-            name="Interest"
+            name="interest"
             class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
           >
-            <option>General question</option>
-            <option>Starting classes</option>
-            <option>Youth program</option>
-            <option>Seminars or events</option>
-            <option>Other</option>
+            <option value="adult-classes">Adult Classes</option>
+            <option value="youth-classes">Youth Classes</option>
+            <option value="seminars">Seminars/Events</option>
+            <option value="">General Question</option>
           </select>
         </div>
 
@@ -182,28 +180,22 @@ import BaseLayout from "../layouts/Layout.astro";
           </label>
           <textarea
             id="message"
-            name="Message"
+            name="message"
             rows="4"
             required
             class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
           ></textarea>
         </div>
 
-        <!-- Submit -->
+        <!-- Submit Button -->
         <div class="md:col-span-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <button
             type="submit"
             class="inline-flex items-center rounded-full border border-violet-500/80 bg-violet-600/90 px-6 py-2.5 text-sm font-semibold text-slate-50 shadow-sm hover:bg-violet-500"
           >
-            Open email to send
+            Send Message
           </button>
-
-          <p class="text-[11px] text-slate-400 leading-relaxed">
-            This form opens your email app with the details filled in so you can send securely
-            from your own address.
-          </p>
         </div>
-
       </form>
     </section>
 
