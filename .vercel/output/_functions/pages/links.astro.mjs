@@ -1,0 +1,249 @@
+import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute } from '../chunks/astro/server_B4bjZISI.mjs';
+import 'piccolore';
+import { $ as $$Layout } from '../chunks/Layout_VpPS_4r8.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Links = createComponent(($$result, $$props, $$slots) => {
+  const aikidoMedia = [
+    {
+      name: "AikiWeb",
+      url: "https://www.aikiweb.com",
+      description: "Articles, discussion forums, dojo search, seminar listings, and general Aikido resources."
+    },
+    {
+      name: "Aiki.com",
+      url: "https://www.aiki.com",
+      description: "Archive and store from the former Aikido Today Magazine, with seminar info, dojo listings, and more."
+    },
+    {
+      name: "Aikido Books (Arizona Aikido)",
+      url: "https://www.azaikido.com",
+      description: "Aikido-by-author book list maintained by Arizona Aikido. Many classic titles are still useful references."
+    },
+    {
+      name: "Aikido FAQ",
+      url: "https://www.aikidofaq.com",
+      description: "A collection of Aikido questions and answers, background, and explanations."
+    },
+    {
+      name: "Aikido Journal",
+      url: "https://www.aikidojournal.com",
+      description: "Historical articles, interviews, videos, and commentary on Aikido and related arts."
+    },
+    {
+      name: "Aikido World Web Journal",
+      url: "https://www.aikido-world.com",
+      description: "News, articles, and reviews related to Aikido practice and history."
+    },
+    {
+      name: "Via Media Publishing",
+      url: "https://www.viamediapublishing.com",
+      description: "Martial arts books and anthologies, including material from the Journal of Asian Martial Arts."
+    }
+  ];
+  const asuDojos = [
+    {
+      name: "Aikido Schools of Ueshiba (ASU)",
+      url: "https://www.asu.org",
+      location: "International",
+      description: "The membership organization founded by Mitsugi Saotome Shihan, affiliating more than 100 dojos."
+    },
+    {
+      name: "Aikido of Missoula",
+      url: "https://www.aikidomissoula.com",
+      location: "Missoula, Montana",
+      description: "ASU-affiliated dojo with a strong focus on vigorous, sensitive training and regular seminars."
+    },
+    {
+      name: "Aikido of Tamalpais",
+      url: "https://www.tam-aikido.org",
+      location: "Corte Madera, California",
+      description: "Long-running dojo originally founded in Mill Valley, affiliated with Hombu via Aikido Schools of Ueshiba."
+    },
+    {
+      name: "Aikido of Tucson",
+      url: "https://www.aikidooftucson.com",
+      location: "Tucson, Arizona",
+      description: "Non-profit Aikido dojo serving Tucson since the 1970s, teaching Aikikai-style open hand and weapons."
+    },
+    {
+      name: "Aikido Rio Grande Valley Texas",
+      url: "https://www.aikidorgvtexas.com",
+      location: "Rio Grande Valley, Texas",
+      description: "ASU-affiliated dojo focusing on traditional Japanese Aikido with an emphasis on respect and principles."
+    },
+    {
+      name: "Aikido Seishinkan Dojo",
+      url: "https://www.aikidoseishinkan.org",
+      location: "Washington, DC area",
+      description: "ASU dojo led by David Goldberg Sensei, offering traditional Aikido training."
+    },
+    {
+      name: "Arizona Aikido Katsujinken Dojo",
+      url: "https://www.prescottaikido.com",
+      location: "Prescott, Arizona",
+      description: "ASU dojo affiliated with Arizona Aikido in Phoenix, offering Aikido training for all ages."
+    },
+    {
+      name: "Aikido of Flagstaff",
+      url: "https://www.aikidoflagstaff.com",
+      location: "Flagstaff, Arizona",
+      description: "Dojo emphasizing traditional Budo principles and community in northern Arizona."
+    },
+    {
+      name: "Aikido of Livermore \u2013 Shinrei Dojo",
+      url: "https://www.aikilivermore.com",
+      location: "Livermore, California",
+      description: "ASU dojo led by Jim Alvarez Sensei, with training in both Aikido and Shinkendo."
+    },
+    {
+      name: "Boulder Aikikai",
+      url: "https://www.boulderaikikai.org",
+      location: "Boulder, Colorado",
+      description: "Hiroshi Ikeda Shihan\u2019s dojo, with classes, seminars, and media resources."
+    },
+    {
+      name: "Chicago Aikikai",
+      url: "https://www.asu.org",
+      location: "Chicago, Illinois",
+      description: "Historic Aikido dojo offering a welcoming training community in the Midwest."
+    },
+    {
+      name: "Denver Aikikai",
+      url: "https://www.denveraikikai.com",
+      location: "Denver, Colorado",
+      description: "ASU dojo founded by Edgar Johansson Sensei, with classes and seminars in central Denver."
+    },
+    {
+      name: "Glendale Aikikai",
+      url: "https://www.glendaleaikido.org",
+      location: "Glendale, Arizona",
+      description: "Community-based dojo through Glendale Parks and Recreation, affiliated with ASU."
+    },
+    {
+      name: "Jionjuku Aikido Academy of Warrior Spirit",
+      url: "https://theaikidodojo.com",
+      location: "Tampa Bay, Florida",
+      description: "One of the first Aikido dojos in the Southeast, ASU-affiliated under John Messores Shihan."
+    },
+    {
+      name: "Redlands Aikikai",
+      url: "https://aikidoredlands.org",
+      location: "Redlands, California",
+      description: "ASU dojo in the Inland Empire, offering Aikido for adults and children."
+    },
+    {
+      name: "South Austin Aikido",
+      url: "https://southaustinaikido.com",
+      location: "Austin, Texas",
+      description: "Non-profit ASU dojo with a strong focus on community, self-development, and inclusive training."
+    },
+    {
+      name: "Vegas Valley Aikido",
+      url: "https://www.vegasvalleyaikido.com",
+      location: "Las Vegas, Nevada",
+      description: "ASU dojo in Las Vegas offering Aikido training for adults and youth."
+    },
+    {
+      name: "West Seattle Aikikai",
+      url: "https://www.westseattleaikikai.com",
+      location: "Seattle, Washington",
+      description: "Dojo associated with Aikikai Hombu Dojo through Aikido Schools of Ueshiba."
+    }
+  ];
+  const redRock = {
+    name: "Red Rock Aikido",
+    location: "Sedona, Arizona",
+    description: "Aikido training in Sedona. Listed here as a contact dojo; information available by phone or email.",
+    contactLines: [
+      "Eric Henkels Sensei",
+      "c/o Sedona Moving & Storage",
+      "2060 Contractors Road",
+      "Sedona, AZ 86336",
+      "Phone: 928-282-1734",
+      "Email: eric@sedonamoving.com"
+    ]
+  };
+  const equipmentVendors = [
+    {
+      name: "Atelier Katsura",
+      url: "https://a-katsura.com",
+      description: "Custom, traditionally tailored hakama with a focus on quality and classical design."
+    },
+    {
+      name: "Bu Jin Design (Aikido24)",
+      url: "https://www.aikido24.com",
+      description: "Bu Jin hakama and dogi, as well as other training wear and equipment."
+    },
+    {
+      name: "Budo Nevada Tailoring",
+      url: "https://www.wix.com",
+      description: "Custom Japanese martial arts uniforms and accessories tailored to measurements."
+    },
+    {
+      name: "E-BOGU.COM, Inc.",
+      url: "https://www.e-bogu.com",
+      description: "Large supplier of martial arts equipment, including training weapons and uniforms."
+    },
+    {
+      name: "Karate Mart",
+      url: "https://www.karate-mart.com",
+      description: "Local Phoenix supplier of student-quality uniforms, belts, and other martial arts gear."
+    },
+    {
+      name: "Nine Circles",
+      url: "https://www.ninecircles.co.uk",
+      description: "European supplier of traditional Budo equipment, including Aikido uniforms and weapons."
+    },
+    {
+      name: "Phoenix Martial Arts Supplies",
+      url: "https://www.phoenixmartialartssupplies.com",
+      description: "Phoenix-based martial arts shop offering equipment and uniforms for various styles."
+    },
+    {
+      name: "Seido International",
+      url: "https://www.seidoshop.com",
+      description: "Aikido-focused budogu and uniforms, produced and curated by active Aikido practitioners in Japan."
+    }
+  ];
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$Layout, { "title": "Arizona Aikido \u2013 Links" }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<section class="border-b border-slate-800 bg-slate-950/90"> <div class="mx-auto max-w-5xl px-4 py-8 md:py-14"> <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-violet-400">
+Resources
+</p> <h1 class="mt-2 text-3xl md:text-4xl font-semibold tracking-tight text-slate-50">
+Links &amp; Resources
+</h1> <p class="mt-4 text-sm md:text-base text-slate-300 max-w-3xl leading-relaxed">
+Expand a section below to view Aikido media resources, Aikido Schools of Ueshiba dojos,
+        and equipment suppliers.
+</p> </div> </section>  <section class="mx-auto max-w-5xl px-4 py-8 md:py-14 space-y-6 text-sm md:text-base text-slate-200 leading-relaxed"> <!-- Aikido Media & Information --> <details class="group rounded-2xl border border-slate-800 bg-slate-900/70"> <summary class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"> <div> <h2 class="text-sm md:text-base font-semibold text-slate-50">
+Aikido Media &amp; Information
+</h2> <p class="mt-1 text-xs text-slate-400">
+Articles, history, forums, and general Aikido resources.
+</p> </div> <span class="text-xs text-slate-400 transition-transform group-open:rotate-90" aria-hidden="true">
+▶
+</span> </summary> <div class="border-t border-slate-800 px-4 py-3 md:px-5 md:py-5 space-y-3"> ${aikidoMedia.map((item) => renderTemplate`<article class="rounded-xl border border-slate-800 bg-slate-950/80 p-3 md:p-4"> <h3 class="text-sm md:text-base font-semibold text-slate-50"> <a${addAttribute(item.url, "href")} target="_blank" rel="noreferrer" class="hover:text-violet-300 break-words"> ${item.name} </a> </h3> <p class="mt-1 text-[11px] md:text-xs text-slate-400 break-all"> ${item.url.replace("https://", "")} </p> <p class="mt-2 text-xs md:text-sm text-slate-200"> ${item.description} </p> </article>`)} </div> </details> <!-- ASU & affiliated dojos --> <details class="group rounded-2xl border border-slate-800 bg-slate-900/70"> <summary class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"> <div> <h2 class="text-sm md:text-base font-semibold text-slate-50">
+Aikido Schools of Ueshiba &amp; Affiliated Dojos
+</h2> <p class="mt-1 text-xs text-slate-400">
+Dojos historically connected with Arizona Aikido or ASU.
+</p> </div> <span class="text-xs text-slate-400 transition-transform group-open:rotate-90" aria-hidden="true">
+▶
+</span> </summary> <div class="border-t border-slate-800 px-4 py-3 md:px-5 md:py-5 space-y-3"> ${asuDojos.map((dojo) => renderTemplate`<article class="rounded-xl border border-slate-800 bg-slate-950/80 p-3 md:p-4"> <h3 class="text-sm md:text-base font-semibold text-slate-50"> <a${addAttribute(dojo.url, "href")} target="_blank" rel="noreferrer" class="hover:text-violet-300 break-words"> ${dojo.name} </a> </h3> ${dojo.location && renderTemplate`<p class="mt-1 text-[11px] md:text-xs text-slate-400"> ${dojo.location} </p>`} <p class="mt-2 text-xs md:text-sm text-slate-200"> ${dojo.description} </p> </article>`)} <!-- Red Rock Aikido (no website) --> <article class="rounded-xl border border-slate-800 bg-slate-950/80 p-3 md:p-4"> <h3 class="text-sm md:text-base font-semibold text-slate-50"> ${redRock.name} </h3> <p class="mt-1 text-[11px] md:text-xs text-slate-400"> ${redRock.location} </p> <p class="mt-2 text-xs md:text-sm text-slate-200"> ${redRock.description} </p> <div class="mt-2 text-[11px] leading-relaxed text-slate-300"> ${redRock.contactLines.map((line) => renderTemplate`<div>${line}</div>`)} </div> </article> </div> </details> <!-- Equipment & uniforms --> <details class="group rounded-2xl border border-slate-800 bg-slate-900/70"> <summary class="flex cursor-pointer items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"> <div> <h2 class="text-sm md:text-base font-semibold text-slate-50">
+Equipment &amp; Uniforms
+</h2> <p class="mt-1 text-xs text-slate-400">
+Vendors for dogi, hakama, weapons, and other training equipment.
+</p> </div> <span class="text-xs text-slate-400 transition-transform group-open:rotate-90" aria-hidden="true">
+▶
+</span> </summary> <div class="border-t border-slate-800 px-4 py-3 md:px-5 md:py-5 space-y-3"> ${equipmentVendors.map((vendor) => renderTemplate`<article class="rounded-xl border border-slate-800 bg-slate-950/80 p-3 md:p-4"> <h3 class="text-sm md:text-base font-semibold text-slate-50"> <a${addAttribute(vendor.url, "href")} target="_blank" rel="noreferrer" class="hover:text-violet-300 break-words"> ${vendor.name} </a> </h3> <p class="mt-1 text-[11px] md:text-xs text-slate-400 break-all"> ${vendor.url.replace("https://", "")} </p> <p class="mt-2 text-xs md:text-sm text-slate-200"> ${vendor.description} </p> </article>`)} </div> </details> </section> ` })}`;
+}, "D:/Work/AZ-Aikido/src/pages/links.astro", void 0);
+
+const $$file = "D:/Work/AZ-Aikido/src/pages/links.astro";
+const $$url = "/links";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Links,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

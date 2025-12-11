@@ -1,0 +1,51 @@
+import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_B4bjZISI.mjs';
+import 'piccolore';
+import { $ as $$Layout } from '../../chunks/Layout_VpPS_4r8.mjs';
+export { renderers } from '../../renderers.mjs';
+
+const $$Crawford = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$Layout, { "title": "Arizona Aikido \u2013 Don Crawford Sensei" }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<section class="border-b border-slate-800 bg-slate-950/90"> <div class="mx-auto max-w-4xl px-4 py-8 md:py-12 flex flex-col gap-6 md:flex-row"> <img src="https://azaikido.org/userimages//20071021001.jpg" alt="Don Crawford Sensei" class="h-48 w-48 md:h-56 md:w-56 rounded-2xl object-cover border border-slate-800"> <div> <p class="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+Senior instructor & officer
+</p> <h1 class="mt-2 text-3xl md:text-4xl font-semibold tracking-tight text-slate-50">
+Don Crawford Sensei
+</h1> <p class="mt-3 text-sm md:text-base text-slate-300">
+Long-time Arizona Aikido instructor and officer who has helped guide the organization
+          since the 1980s.
+</p> </div> </div> </section>  <section class="mx-auto max-w-4xl px-4 py-10 md:py-12 space-y-8 text-sm md:text-base text-slate-200"> <section class="space-y-3"> <h2 class="text-lg font-semibold text-slate-50">Beginning Aikido</h2> <p>
+Don Crawford Sensei began his study of Aikido in January 1980 under the guidance of
+        Tsuneji Sakakibara Sensei and Jon Takagi Sensei at Arizona Aikikai. From the beginning he
+        trained closely with the core group of students who helped carry the dojo forward.
+</p> </section> <section class="space-y-3"> <h2 class="text-lg font-semibold text-slate-50">Ranks and teachers</h2> <p>
+He received his shodan in February 1987 through T.K. Chiba shihan, his nidan in January
+        1992 and sandan in January 1995 with Hiroshi Ikeda shihan, and his yondan in December 2001
+        and godan in January 2010 with Mitsugi Saotome shihan.
+</p> <p>
+These connections to several major teachers in the Aikido world helped keep Arizona Aikido
+        closely tied to the broader Aikido community while maintaining its own identity.
+</p> </section> <section class="space-y-3"> <h2 class="text-lg font-semibold text-slate-50">Leadership at Arizona Aikido</h2> <p>
+After the death of Takagi Sensei, Crawford Sensei took on an important leadership role in
+        Arizona Aikido, helping with both training and organizational stability.
+</p> <p>
+Over the years he has served as president of the corporation and currently serves as
+        treasurer, handling responsibilities that allow the dojo to operate as a nonprofit
+        community organization.
+</p> </section> <section class="space-y-3"> <h2 class="text-lg font-semibold text-slate-50">Ongoing contribution</h2> <p>
+In addition to his administrative work, he continues to train and teach, support seminars,
+        and mentor students. His combination of long-term practice and steady behind-the-scenes
+        effort is a key part of Arizona Aikido’s continuity.
+</p> </section> </section> ` })}`;
+}, "D:/Work/AZ-Aikido/src/pages/biography/crawford.astro", void 0);
+
+const $$file = "D:/Work/AZ-Aikido/src/pages/biography/crawford.astro";
+const $$url = "/biography/crawford";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Crawford,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

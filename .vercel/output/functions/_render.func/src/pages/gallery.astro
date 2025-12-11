@@ -1,0 +1,811 @@
+---
+import BaseLayout from "../layouts/Layout.astro";
+
+const gallerySections = [
+  {
+    id: "dojo-life",
+    title: "Dojo & Training",
+    description:
+      "Scenes from regular training and the dojo environment at Arizona Aikido.",
+    images: [
+      {
+        src: "https://azaikido.org/userimages/20161031001.gif",
+        alt: "First keiko at the new dojo",
+        caption: "First keiko at the new dojo – October 27, 2016."
+      },
+      {
+        src: "https://azaikido.org/userimages/20201125001s.jpg",
+        alt: "Training at Arizona Aikido with masks during 2020",
+        caption: "Training at Arizona Aikido in 2019–2020 with safety measures in place."
+      },
+      {
+        src: "https://classpass-res.cloudinary.com/image/upload/f_auto/q_auto%2Cw_1125/media_venue/f7wbbsc1ymqihvv7ifv6.jpg",
+        alt: "Arizona Aikido class on the mat",
+        caption: "Regular keiko on the mat at Arizona Aikido."
+      }
+    ]
+  },
+
+  {
+    id: "new-dojo-2016",
+    title: "Arizona Agatsu Dojo – 2016 Move",
+    description:
+      "Photos from the move to the current dojo on Camelback Road: the new space, paint party, and first keiko.",
+    images: [
+      {
+        src: "https://azaikido.org/userimages/20161009001m.gif",
+        alt: "Arizona Aikido moved in 2016 to 939 W. Camelback Rd., Phoenix, AZ 85013",
+        caption:
+          "Arizona Aikido moved in 2016 to 939 W. Camelback Rd., Phoenix, AZ 85013."
+      },
+      {
+        src: "https://azaikido.org/userimages/20161017002.gif",
+        alt: "Paint party for the new dojo walls, October 15, 2016",
+        caption:
+          "Paint party to get the walls in shape on October 15, 2016. Thanks to Moylan Ryan Sensei for the photo."
+      },
+      {
+        src: "https://azaikido.org/userimages/20161127001.gif",
+        alt: "First Friday evening at the new dojo",
+        caption:
+          "First Friday evening (2016-11-25) regular class at the new dojo. Additional work remained before regular classes fully resumed."
+      },
+      {
+        src: "https://azaikido.org/userimages/20161127002.gif",
+        alt: "First Friday keiko at the new dojo",
+        caption:
+          "First Friday evening keiko at the new dojo. There was still work to do before regular classes resumed."
+      },
+      {
+        src: "https://azaikido.org/userimages/20161222001.gif",
+        alt: "Mats placed December 17, 2016",
+        caption:
+          "Mats were placed Saturday, December 17, 2016. Old mats from the back dojo are visible at the far end with underlayment in a roll."
+      },
+      {
+        src: "https://azaikido.org/userimages/20161222002.gif",
+        alt: "New mats in place looking toward the front of the dojo",
+        caption:
+          "New mats in place, looking toward the front of the dojo. Mats were placed on December 17, 2016 and were not yet fully installed."
+      },
+      {
+        src: "https://azaikido.org/userimages/20170921001.jpg",
+        alt: "Shomen at Arizona Aikido in 2017",
+        caption: "Shomen at the new dojo as of September 20, 2017."
+      }
+    ]
+  },
+
+  {
+    id: "seminars",
+    title: "Seminars & Visiting Instructors",
+    description:
+      "Events and seminars with visiting instructors and senior teachers connected with Arizona Aikido.",
+    images: [
+      {
+        src: "https://azaikido.org/userimages/20180910001.jpg",
+        alt: "Ikeda Sensei Seminar at Asian Arts Center circa 1987",
+        caption: "Ikeda Sensei seminar at the Asian Arts Center, around 1987."
+      },
+      {
+        src: "https://azaikido.org/userimages/20180707002m.jpg",
+        alt: "Cognard Hanshi demonstrating with ken in Phoenix",
+        caption: "Cognard Hanshi visiting Arizona Aikido – ken demonstration (2018)."
+      },
+      {
+        src: "https://azaikido.org/userimages/20180707001.jpg",
+        alt: "Group photo from Cognard Hanshi seminar, 2018",
+        caption:
+          "Group photo taken Sunday, July 1, 2018 during Cognard Hanshi’s seminar. Not all attendees are present."
+      },
+      {
+        src: "https://azaikido.org/userimages/20190407001.jpg",
+        alt: "Mary Heiny Sensei at Aikido at the Center, Tucson",
+        caption: "Mary Heiny Sensei at Aikido at the Center, Tucson, Arizona."
+      },
+      {
+        src: "https://azaikido.org/userimages/20180606001.jpg",
+        alt: "Cognard Hanshi in Phoenix, June 2018",
+        caption: "Cognard Hanshi in Phoenix, June 2018."
+      },
+      {
+        src: "https://azaikido.org/userimages/20180515001m.jpg",
+        alt: "50th anniversary seminar with Saotome Shihan, 2018",
+        caption:
+          "50th anniversary of Arizona Aikido, celebrated May 11–13, 2018 with a seminar by Mitsugi Saotome Shihan at the new dojo."
+      },
+      {
+        src: "https://azaikido.org/userimages/20170911001.jpg",
+        alt: "Fall Mountain Camp 2017 group photo",
+        caption: "Fall Mountain Camp 2017 group photo."
+      },
+      {
+        src: "https://azaikido.org/userimages/20150709001.gif",
+        alt: "Jamie Zimron Sensei class, July 8, 2015",
+        caption: "Jamie Zimron Sensei class – July 8, 2015."
+      },
+      {
+        src: "https://azaikido.org/userimages/20140913001.jpg",
+        alt: "Fall Mountain Camp 2014 group photo",
+        caption:
+          "Group photo taken Saturday, September 6, 2014 at Fall Mountain Camp, Emmanuel Pines Camp in Prescott, Arizona."
+      },
+      {
+        src: "https://azaikido.org/userimages/20150831001.gif",
+        alt: "Ikeda Sensei at Fall Mountain Camp 2014",
+        caption:
+          "Hiroshi Ikeda Shihan at the opening keiko of Fall Mountain Camp 2014, the 30th anniversary of the camp."
+      },
+      {
+        src: "https://azaikido.org/userimages/20140526006.jpg",
+        alt: "Cognard Sensei and Helmut Salas",
+        caption: "Cognard Sensei and Helmut Salas."
+      },
+      {
+        src: "https://azaikido.org/userimages/20140526005.jpg",
+        alt: "Cognard Sensei demonstrating",
+        caption: "Cognard Sensei demonstrating a technique."
+      },
+      {
+        src: "https://azaikido.org/userimages/20140526004.jpg",
+        alt: "An Evening with Cognard Shihan – group photo",
+        caption: "An Evening with Cognard Shihan – group photo."
+      },
+      {
+        src: "https://azaikido.org/userimages/20140526002.jpg",
+        alt: "Sakakibara Sensei and Cognard Sensei",
+        caption:
+          "Cognard Shihan and Tsuneji Sakakibara Sensei on June 25, 2013, less than a month before Sakakibara Sensei’s passing."
+      },
+      {
+        src: "https://azaikido.org/userimages/20120514002.jpg",
+        alt: "Arizona Regional Training – May 12, 2012",
+        caption:
+          "Arizona Regional Training, May 12, 2012. L–R: Tania, Wayne, Giorgio, Amir, George, Josh Drachman Sensei, Yoshi, Tom, Darrell, and Sharon."
+      },
+      {
+        src: "https://azaikido.org/userimages/20111029001m.jpg",
+        alt: "Regional Weapons Training – Phoenix, 2011",
+        caption:
+          "Regional weapons training seminar at Los Olivos Park, Phoenix, October 15, 2011."
+      },
+      {
+        src: "https://azaikido.org/userimages/20110918001m.jpg",
+        alt: "Fall Bridge Seminar 2011 group photo",
+        caption:
+          "Group photo from the Fall Bridge Seminar, September 8–11, 2011. Photo by Ken Jacobs (Flagstaff)."
+      },
+      {
+        src: "https://azaikido.org/userimages/20110310002.jpg",
+        alt: "Annual Winter Seminar 2011 group photo",
+        caption:
+          "Annual Winter Seminar 2011 with Mitsugi Saotome Shihan, February 11–13, 2011."
+      },
+      {
+        src: "https://azaikido.org/userimages/20101022002.jpg",
+        alt: "Fall Bridge Seminar 2010",
+        caption: "Fall Bridge Seminar 2010."
+      },
+      {
+        src: "https://azaikido.org/userimages/20101022001.jpg",
+        alt: "Fall Bridge Seminar 2010 group photo",
+        caption: "Group photo from the Fall Bridge Seminar 2010."
+      },
+      {
+        src: "https://azaikido.org/userimages/20100430001.jpg",
+        alt: "Haines Sensei at Vegas Valley Aikido, April 2010",
+        caption:
+          "Tom Haines Sensei at Vegas Valley Aikido, teaching kihon waza and the first five kumitachi, April 24–25, 2010."
+      },
+      {
+        src: "https://azaikido.org/userimages/20100303002.jpg",
+        alt: "Annual Winter Seminar 2010 with Kevin Choate Sensei",
+        caption:
+          "Annual Winter Seminar 2010 with Kevin Choate Sensei (Chicago Aikikai) at Longview Elementary School, Phoenix, February 19–21, 2010."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091005001.jpg",
+        alt: "Fall Bridge Seminar 2009 group photo",
+        caption:
+          "Group photo from the Fall Bridge Seminar, September 10–13, 2009 in Prescott, Arizona, with Hiroshi Ikeda Shihan and Mary Heiny Sensei."
+      },
+      {
+        src: "https://azaikido.org/userimages/20080914001.jpg",
+        alt: "Fall Bridge Seminar 2008 group photo",
+        caption:
+          "Arizona Aikido's first Bridge Seminar, celebrating 40 years of the dojo."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070914001m.jpg",
+        alt: "Fall Mountain Camp 2007 group photo",
+        caption: "Fall Mountain Camp 2007 group photo."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070911002.jpg",
+        alt: "Fall Mountain Camp 2007 kamidana",
+        caption:
+          "Kamidana (shomen) for Fall Mountain Camp 2007 at Emmanuel Pines Camp, Prescott, September 6–9, 2007."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070601010.jpg",
+        alt: "Fall Mountain Camp 2006 group photo",
+        caption: "Fall Mountain Camp 2006 group photo."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070722002.jpg",
+        alt: "William Gleason Sensei – February 2006",
+        caption: "William Gleason Sensei – February 2006."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070601009.jpg",
+        alt: "Fall Mountain Camp 2005 group photo",
+        caption: "Fall Mountain Camp 2005 group photo."
+      }
+    ]
+  },
+
+  {
+    id: "demonstrations",
+    title: "Demonstrations & Festivals",
+    description:
+      "Public demonstrations and community events where Arizona Aikido presented Aikido to the wider community.",
+    images: [
+      {
+        src: "https://azaikido.org/userimages/20080524004.jpg",
+        alt: "Arizona Aikido Matsuri demonstration",
+        caption:
+          "David Ramirez attacks Tom Haines Sensei while Andy Gerl Sensei narrates at a Phoenix Parks and Recreation Matsuri demonstration."
+      },
+      {
+        src: "https://azaikido.org/userimages/20100305001.jpg",
+        alt: "Matsuri 2010 – two-sword defense",
+        caption:
+          "Al Krever and Stephen Jeckel demonstrate two-sword defense at the Phoenix Parks and Recreation Matsuri, February 27, 2010."
+      },
+      {
+        src: "https://azaikido.org/userimages/20100305002.jpg",
+        alt: "Matsuri 2010 – sword defense",
+        caption:
+          "Tom Haines Sensei demonstrates sword defense with Stephen Jeckel at the Phoenix Parks and Recreation Matsuri, February 27–28, 2010 at Heritage Square."
+      },
+      {
+        src: "https://azaikido.org/userimages/20100305003.jpg",
+        alt: "Matsuri 2010 – jo nage",
+        caption:
+          "Yoshi Kumagai demonstrates jo nage with Vandell Ventura at the Phoenix Parks and Recreation Matsuri, February 27–28, 2010."
+      },
+      {
+        src: "https://azaikido.org/userimages/20110301001.jpg",
+        alt: "Matsuri 2011 demonstration – Haines Sensei",
+        caption: "Haines Sensei demonstrating a sword take-away at the 2011 Matsuri demonstration."
+      },
+      {
+        src: "https://azaikido.org/userimages/20110301004.jpg",
+        alt: "Matsuri 2011 demonstration – Krever and Jeckel",
+        caption:
+          "Al Krever and Stephen Jeckel demonstrating kumitachi (paired sword practice) at Matsuri 2011."
+      },
+      {
+        src: "https://azaikido.org/userimages/20110301003.jpg",
+        alt: "Matsuri 2011 demonstration – Haines Sensei tachitori",
+        caption:
+          "Haines Sensei demonstrating tachitori (sword take-away) at Matsuri 2011."
+      },
+      {
+        src: "https://azaikido.org/userimages/20110301002.jpg",
+        alt: "Matsuri 2011 demonstration – Haines Sensei tachitori",
+        caption:
+          "Another view of Haines Sensei demonstrating tachitori (sword take-away) at Matsuri 2011."
+      },
+      {
+        src: "https://azaikido.org/userimages/20110305001.jpg",
+        alt: "Matsuri 2011 demonstration – randori",
+        caption: "Haines Sensei demonstrating randori at the 2011 Matsuri demonstration."
+      },
+      {
+        src: "https://azaikido.org/userimages/20110305002.jpg",
+        alt: "Matsuri 2011 demonstration – Jeckel and Kumagai",
+        caption: "Yoshi Kumagai and Stephen Jeckel demonstrating together at Matsuri 2011."
+      },
+      {
+        src: "https://azaikido.org/userimages/20110305003.jpg",
+        alt: "Matsuri 2011 demonstration – Yoshi with bokken",
+        caption:
+          "Yoshi Kumagai with bokken and a Matsuri poster at the 2011 demonstration."
+      },
+      {
+        src: "https://azaikido.org/userimages/20111118001.jpg",
+        alt: "Otsukimi (Moonviewing) Festival 2011",
+        caption:
+          "Photo by Susan McCall at the Otsukimi Festival, October 15, 2011 at the Japanese Friendship Garden in Phoenix. Tom Haines Sensei and Al Krever stand in front; seated (l–r) Yoshi Kumagai, Skip Casner, and Ron Casner."
+      }
+    ]
+  },
+
+  {
+    id: "historical",
+    title: "Historical Photos",
+    description:
+      "Historical photos tied to Arizona Aikido and its teachers, including early dojos and senior instructors.",
+    images: [
+      {
+        src: "https://azaikido.org/userimages/20140312001m.gif",
+        alt: "Jon Takagi Sensei c. 1970",
+        caption:
+          "Jon Mamoru Takagi, likely around 1970 at the First Street Dojo. Thanks to his son, Koichi Takagi, for the photo."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091127007m.jpg",
+        alt: "Koichi Tohei at Arizona Aikikai in 1972",
+        caption:
+          "Koichi Tohei Sensei teaching at Arizona Aikikai on north First Street in Phoenix in 1972. Robert Bugh is on the mat after taking ukemi. Photo courtesy of Soke Robert Bugh."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091127006m.jpg",
+        alt: "Koichi Tohei at Arizona Aikikai in 1972",
+        caption:
+          "Koichi Tohei Sensei prepares to throw Robert Bugh in the Arizona Aikikai dojo on north First Street, 1972. Photo courtesy of Soke Robert Bugh."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091127005m.jpg",
+        alt: "Koichi Tohei at Arizona Aikikai in 1972",
+        caption:
+          "Robert Bugh throws Jon Takagi Sensei while Koichi Tohei Sensei observes. Photo courtesy of Soke Robert Bugh."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091127004m.jpg",
+        alt: "Koichi Tohei Sensei at Phoenix College",
+        caption:
+          "Koichi Tohei Sensei demonstrating randori at Phoenix College in 1972. Robert Bugh approaches from the left. Photo courtesy of Soke Robert Bugh."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091127003m.jpg",
+        alt: "Koichi Tohei Sensei at Phoenix College",
+        caption:
+          "Koichi Tohei Sensei preparing for randori at Phoenix College in Phoenix, Arizona, 1972. Vincent Woolery is to the left, Robert Bugh in the back, and Jon Takagi Sensei likely in the foreground with his back to the camera."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091127002.jpg",
+        alt: "Koichi Tohei Sensei at Phoenix College",
+        caption:
+          "Koichi Tohei Sensei demonstrates randori at Phoenix College in 1972. Robert Bugh is on the ground in front, with Jon Takagi Sensei on the left and Vincent Woolery on the right."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091127001.jpg",
+        alt: "Koichi Tohei and Robert Bugh – 1972",
+        caption:
+          "Koichi Tohei Sensei performs kiatsuho on Robert Bugh at the Arizona Aikikai on north First Street in 1972."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091129006.jpg",
+        alt: "Sakakibara Sensei and Corella Sensei at Kuamori Dojo – 1974",
+        caption:
+          "Tsuneji Sakakibara Sensei and Robert Corella Sensei visiting Kuamori Dojo in Japan in 1974."
+      },
+      {
+        src: "https://azaikido.org/userimages/20130629001.jpg",
+        alt: "Tohei Sensei and Takagi Sensei at ASU",
+        caption:
+          "Jon Takagi Sensei taking ukemi for Koichi Tohei Sensei at a training session at Arizona State University in the spring of 1974."
+      },
+      {
+        src: "https://azaikido.org/userimages/20131011001.jpg",
+        alt: "Jon Takagi Sensei portrait",
+        caption:
+          "Portrait of Jon Takagi Sensei used as part of the dojo’s shomen display."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070531003.jpg",
+        alt: "Frank Doran Sensei visits Arizona Aikikai – c. 1981",
+        caption:
+          "Frank Doran Sensei teaching at Arizona Aikikai, likely around 1981."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070531002.jpg",
+        alt: "Tom Haines Sensei demonstrates weapons randori",
+        caption:
+          "From left: Roger Perey, Tom Haines, Bob Frumhoff, and Don Crawford as Tom Haines Sensei demonstrates weapons randori."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070531001.jpg",
+        alt: "Haines, Frumhoff, and Saotome Sensei at the Grand Canyon",
+        caption:
+          "On one of Saotome Sensei's visits to Arizona, probably 1991, Tom Haines and Bob Frumhoff took him to the Grand Canyon."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070529004.jpg",
+        alt: "Arizona Aikikai Summer Camp at Astara – 1981",
+        caption:
+          "Arizona Aikikai’s annual July 4th camp at Astara in Upland, California (1981). Takagi Sensei, Fumio Toyoda Sensei, Sakakibara Sensei, and many future Arizona Aikido members are present."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070601001.jpg",
+        alt: "Takagi Sensei and Ben Mancini",
+        caption:
+          "Takagi Sensei demonstrates kote gaeshi defense against a bokken attack with Ben Mancini as uke."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070601002.jpg",
+        alt: "Takagi Sensei and Bill Illig",
+        caption:
+          "Takagi Sensei and Bill Illig at Arizona Aikikai's annual camp at Astara Center in Upland, California in the early 1980s."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070601003.jpg",
+        alt: "Takagi Sensei and Janice Dee",
+        caption:
+          "Takagi Sensei and Janice Dee practicing jo kata at Astara Camp in Upland, California, likely July 1983. Janice was the senior student tragically killed with Takagi Sensei in February 1984."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091129007.jpg",
+        alt: "Sakakibara Sensei and Toyoda Sensei at Fall Mountain Camp",
+        caption:
+          "Tsuneji Sakakibara Sensei and Fumio Toyoda Sensei relaxing at Fall Mountain Camp in Prescott, Arizona, 1985."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070531004.jpg",
+        alt: "Asian Arts Center ribbon cutting",
+        caption:
+          "Ribbon-cutting at the opening of the Asian Arts Center (5th Avenue Dojo), around 1986. David Block (T’ai Chi), his sister, and Ralph Pfleger are pictured."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091129002m.jpg",
+        alt: "Haines Sensei with Doshu – 1991",
+        caption:
+          "Tom Haines Sensei presents a gift from Arizona Aikido to Doshu Kisshomaru Ueshiba at the Aikido Schools of Ueshiba celebration in Washington, DC in 1991."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091129003m.jpg",
+        alt: "Haines Sensei with Doshu – 1991",
+        caption:
+          "Another photo of Tom Haines Sensei presenting a gift to Doshu Kisshomaru Ueshiba at the 1991 ASU celebration."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091129004m.jpg",
+        alt: "Haines Sensei with Doshu – 1991",
+        caption:
+          "A third view of Tom Haines Sensei offering a gift from Arizona Aikido to Doshu Kisshomaru Ueshiba in 1991."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091202001m.jpg",
+        alt: "Saotome Sensei and Sakakibara Sensei – dan test",
+        caption:
+          "Saotome Sensei and Tsuneji Sakakibara Sensei observing a dan test at the Annual Winter Seminar at Longview School in Phoenix."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091129001.jpg",
+        alt: "Wednesday class – September 15, 2004",
+        caption:
+          "Wednesday evening class on September 15, 2004 at the 5th Avenue Asian Arts Center Dojo. Photo by John Cavness."
+      },
+      {
+        src: "https://azaikido.org/userimages/20071115001m.jpg",
+        alt: "Wednesday evening class – November 14, 2007",
+        caption:
+          "Group photo of the Wednesday evening class on November 14, 2007 at the Asian Arts Center on 5th Avenue in Phoenix."
+      },
+      {
+        src: "https://azaikido.org/userimages/20130723001.jpg",
+        alt: "Sakakibara Sensei by shomen",
+        caption:
+          "Tsuneji Sakakibara Sensei standing by the shomen at Arizona Aikido, 318 North 5th Avenue, Phoenix."
+      },
+      {
+        src: "https://azaikido.org/userimages/20140310001.gif",
+        alt: "Sakakibara Sensei rokudan certificate",
+        caption:
+          "Tsuneji Sakakibara Sensei’s rokudan (6th dan) certificate, awarded January 20, 1999."
+      },
+      {
+        src: "https://azaikido.org/userimages/20140310002.gif",
+        alt: "Takagi Sensei rokudan certificate",
+        caption:
+          "Jon Mamoru Takagi Sensei’s rokudan certificate, awarded posthumously and dated January 1, 1984."
+      },
+      {
+        src: "https://azaikido.org/userimages/20140719001.jpg",
+        alt: "Sakakibara Sensei’s grave marker",
+        caption:
+          "Grave marker of Tsuneji Sakakibara Sensei, photographed by his son Kenneth in July 2014. Sensei died July 22, 2013."
+      },
+      {
+        src: "https://azaikido.org/userimages/20080524003.jpg",
+        alt: "Mary Heiny Sensei with Tsuneji Sakakibara Sensei",
+        caption:
+          "Mary Heiny Sensei with Tsuneji Sakakibara Sensei at her Arizona Aikido seminar, April 1–3, 2005."
+      }
+    ]
+  },
+
+  {
+    id: "personalities",
+    title: "Aikido Personalities",
+    description:
+      "Notable Aikido teachers and figures connected to Arizona Aikido or influential in its lineage.",
+    images: [
+      {
+        src: "https://azaikido.org/userimages/20070601004.jpg",
+        alt: "Morihiro Saito Sensei",
+        caption: "Morihiro Saito Sensei."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070601005.jpg",
+        alt: "Isao Takahashi Sensei",
+        caption: "Isao Takahashi Sensei."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070601006.jpg",
+        alt: "Koichi Tohei Sensei and Isao Takahashi Sensei",
+        caption: "Koichi Tohei Sensei and Isao Takahashi Sensei."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070601007.jpg",
+        alt: "Henry Oshiro",
+        caption: "Henry Oshiro."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070601008.jpg",
+        alt: "Frank Doran Sensei",
+        caption: "Frank Doran Sensei."
+      },
+      {
+        src: "https://azaikido.org/userimages/20080524001.jpg",
+        alt: "Shizuo Imaizumi Shihan",
+        caption:
+          "Shizuo Imaizumi Shihan, guest instructor at Arizona Aikido’s Annual Winter Seminar, February 7–9, 2003."
+      },
+      {
+        src: "https://azaikido.org/userimages/20080524002.jpg",
+        alt: "Mary Heiny Sensei",
+        caption:
+          "Mary Heiny Sensei conducted a special seminar for Arizona Aikido from April 1–3, 2005."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091202003.jpg",
+        alt: "Ikeda Shihan at Fall Mountain Camp 2005",
+        caption:
+          "Hiroshi Ikeda Shihan instructing at Arizona Aikido's Fall Mountain Camp in Prescott, Arizona in 2005."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070722001.jpg",
+        alt: "William Gleason Sensei",
+        caption:
+          "William Gleason Sensei teaching at an Arizona Aikido seminar in February 2006."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091202002m.jpg",
+        alt: "Mitsugi Saotome Shihan",
+        caption:
+          "Mitsugi Saotome Shihan at the Aiki Shrine Dojo in Florida, founder of Aikido Schools of Ueshiba and a major influence on Arizona Aikido."
+      },
+      {
+        src: "https://azaikido.org/userimages/20091129005.jpg",
+        alt: "John Messores Sensei",
+        caption:
+          "John Messores Sensei has provided seminar instruction at Arizona Aikido multiple times, most recently in February 2009."
+      },
+      {
+        src: "https://azaikido.org/userimages/20170310001.gif",
+        alt: "Stanley Pranin – in memoriam",
+        caption: "Remembering Aikido historian Stanley Pranin."
+      },
+      {
+        src: "https://azaikido.org/userimages/20170426001.gif",
+        alt: "O Sensei’s grave",
+        caption:
+          "Grave of Morihei Ueshiba O Sensei at Ayabe and Tanabe. Inset: Doshu Moriteru Ueshiba visiting the grave in 2016. Photo by Christopher Li (Aikido Sangenkai)."
+      },
+      {
+        src: "https://azaikido.org/userimages/20171214001.jpg",
+        alt: "O Sensei commissioned portrait by Bernie Lau Sensei",
+        caption:
+          "Commissioned drawing of O Sensei obtained from Bernie Lau Sensei, showing a typical portrait pose in his later years."
+      },
+      {
+        src: "https://azaikido.org/userimages/20180228001.jpg",
+        alt: "Wendy Whited, 7th dan",
+        caption:
+          "Wendy Whited Sensei, senior ASU instructor, known for her clear teaching and extensive study under Saotome Shihan."
+      },
+      {
+        src: "https://azaikido.org/userimages/20200331001.jpg",
+        alt: "Mitsugi Saotome Shihan – 2020 message",
+        caption:
+          "Saotome Shihan’s 2020 message encouraging aikidoka worldwide to stay safe and continue to embody O Sensei’s spirit of caring for the community."
+      }
+    ]
+  },
+
+  {
+    id: "japan-trip-2007",
+    title: "Trip to Japan – June 2007",
+    description:
+      "Images from the Arizona Aikido members’ trip to Japan in June 2007, including visits to O Sensei’s birthplace and cultural outings.",
+    images: [
+      {
+        src: "https://azaikido.org/userimages/20070712002s.jpg",
+        alt: "Statue of O Sensei",
+        caption: "Statue of Morihei Ueshiba, founder of Aikido."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070712003s.jpg",
+        alt: "O Sensei's birthplace sign",
+        caption: "Sign marking the birthplace of Morihei Ueshiba O Sensei."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070712004s.jpg",
+        alt: "Group at the O Sensei statue",
+        caption: "Group photo at the base of the O Sensei statue."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070712005s.jpg",
+        alt: "Dinner in Japan",
+        caption: "Yoshi, Al, Tom, and Wayne enjoying dinner during the Japan trip."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070712006s.jpg",
+        alt: "Group dinner in Japan",
+        caption: "The entire crew together at dinner during the trip."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070712008s.jpg",
+        alt: "Group photo in Japan",
+        caption: "Another group photo from the Japan trip."
+      },
+      {
+        src: "https://azaikido.org/userimages/20070712007s.jpg",
+        alt: "Let There Be Peace",
+        caption: "Aikido is the way of peace…"
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout title="Arizona Aikido – Image Gallery">
+  <!-- Header -->
+  <section class="border-b border-slate-800 bg-slate-950/90">
+    <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-violet-400">
+        Image Gallery
+      </p>
+      <h1 class="mt-2 text-3xl md:text-4xl font-semibold tracking-tight text-slate-50">
+        Arizona Aikido – Photos
+      </h1>
+      <p class="mt-4 text-sm md:text-base text-slate-300 max-w-3xl">
+        Browse photos of the Arizona Agatsu Dojo, seminars, visiting teachers, historical images, and trips connected with Arizona Aikido.
+        Click any photo to view it larger.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section nav for easier browsing -->
+  <nav class="mx-auto max-w-6xl px-4 pt-6 pb-4">
+    <div class="flex flex-wrap gap-2 text-xs">
+      {gallerySections.map((section) => (
+        <a
+          href={`#${section.id}`}
+          class="rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1.5 font-medium text-slate-100 hover:border-violet-400 hover:text-violet-200"
+        >
+          {section.title}
+        </a>
+      ))}
+    </div>
+  </nav>
+
+  <!-- Gallery sections -->
+  <section class="mx-auto max-w-6xl px-4 pb-10 md:pb-14 space-y-10 text-slate-200">
+    {gallerySections.map((section) => (
+      <section id={section.id} class="space-y-4 scroll-mt-24">
+        <header class="space-y-1">
+          <h2 class="text-lg md:text-xl font-semibold text-slate-50">
+            {section.title}
+          </h2>
+          <p class="text-xs md:text-sm text-slate-400">
+            {section.description}
+          </p>
+        </header>
+
+        {section.images.length === 0 ? (
+          <p class="text-xs text-slate-500">
+            Images for this section will be added soon.
+          </p>
+        ) : (
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {section.images.map((img) => (
+              <figure class="group overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/80">
+                <a
+                  href={img.src}
+                  data-lightbox-src={img.src}
+                  data-lightbox-caption={img.caption}
+                  class="block"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    class="h-52 w-full object-contain object-center bg-slate-900 transition-transform duration-300 group-hover:scale-105"
+                  />
+                </a>
+                <figcaption class="border-t border-slate-800 px-3 py-2 text-[11px] text-slate-300">
+                  {img.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
+      </section>
+    ))}
+  </section>
+
+  <!-- Lightbox modal -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-40 hidden flex items-center justify-center"
+  >
+    <div
+      id="lightbox-backdrop"
+      class="absolute inset-0 bg-black/70"
+    ></div>
+    <div
+      class="relative z-10 mx-4 max-h-[90vh] max-w-4xl rounded-2xl border border-slate-700 bg-slate-950 p-4 shadow-2xl flex flex-col gap-3"
+    >
+      <button
+        id="lightbox-close"
+        type="button"
+        class="absolute right-3 top-3 text-xs font-semibold text-slate-300 hover:text-slate-50"
+      >
+        Close ✕
+      </button>
+      <div class="flex-1 overflow-auto flex items-center justify-center">
+        <img
+          id="lightbox-img"
+          src=""
+          alt=""
+          class="max-h-[70vh] max-w-full object-contain"
+        />
+      </div>
+      <p
+        id="lightbox-caption"
+        class="text-xs text-slate-300"
+      ></p>
+    </div>
+  </div>
+
+  <script is:inline>
+    window.addEventListener("DOMContentLoaded", () => {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxCaption = document.getElementById("lightbox-caption");
+      const lightboxClose = document.getElementById("lightbox-close");
+      const lightboxBackdrop = document.getElementById("lightbox-backdrop");
+
+      if (!lightbox || !lightboxImg || !lightboxCaption) return;
+
+      document.querySelectorAll("[data-lightbox-src]").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          e.preventDefault(); // prevent navigation, use modal instead
+          const src = el.getAttribute("data-lightbox-src");
+          const caption = el.getAttribute("data-lightbox-caption") || "";
+          if (!src) return;
+          lightboxImg.src = src;
+          lightboxImg.alt = caption;
+          lightboxCaption.textContent = caption;
+          lightbox.classList.remove("hidden");
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.add("hidden");
+        lightboxImg.src = "";
+        lightboxCaption.textContent = "";
+      }
+
+      lightboxClose?.addEventListener("click", closeLightbox);
+      lightboxBackdrop?.addEventListener("click", closeLightbox);
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+      });
+    });
+  </script>
+</BaseLayout>
